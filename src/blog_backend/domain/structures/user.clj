@@ -1,3 +1,5 @@
 (ns blog-backend.domain.structures.user)
 
-(defrecord User [id username password])
+(defrecord User [^Integer id
+                 ^String username
+                 ^String password])

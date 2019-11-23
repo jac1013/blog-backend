@@ -1,5 +1,7 @@
 all: deps lint test
 
+.PHONY: all test clean build
+
 deps:
 		lein deps
 
