@@ -53,6 +53,12 @@ jobs:
           command: make coverage
 
       - run:
+          name: Move test coverate to artifacts
+          command: |
+              mkdir coverage
+              mv ./target/coverage/lcov.info coverage/
+
+      - run:
           name: Check Dependencies
           command: make check-dependencies
 
@@ -63,3 +69,7 @@ jobs:
       - run:
           name: Generate Distribution
           command: make build
+
+      - store_artifacts: # upload test coverage as artifact
+          path: ./coverage/lcov.info
+          prefix: tests
