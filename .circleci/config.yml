@@ -66,6 +66,12 @@ jobs:
           name: Generate Distribution
           command: make build
 
+      - run:
+          name: Move JAR to artifacts
+          command: |
+              mkdir jar
+              mv ./target/uberjar/blog-backend-0.1.0-SNAPSHOT-standalone.jar jar/
+
       - store_artifacts: # upload test coverage as artifact
           path: ./coverage/lcov.info
           prefix: tests
