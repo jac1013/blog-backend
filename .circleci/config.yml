@@ -72,6 +72,11 @@ jobs:
               mkdir jar
               mv ./target/uberjar/blog-backend-0.1.0-SNAPSHOT-standalone.jar jar/
 
-      - store_artifacts: # upload test coverage as artifact
+      - store_artifacts:
           path: ./coverage/lcov.info
           prefix: tests
+
+      - store_artifacts:
+          path: ./jar/blog-backend-0.1.0-SNAPSHOT-standalone.jar
+          prefix: build
+
