@@ -52,4 +52,4 @@ jobs:
           path_to_lcov: ./target/coverage/lcov.info
           flag_name: Seding Coverage to Coveralls
 orbs:
-  coveralls: coveralls/coveralls@x.y.z
+  coveralls: coveralls/coveralls@1.0.4
