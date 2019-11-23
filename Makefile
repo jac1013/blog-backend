@@ -9,8 +9,14 @@ lint:
 test:
 		lein test
 
+clean:
+		rm -fr ./target/*
+
 build:
-		lein uberjar
+		make clean && lein uberjar
+
+run:
+		lein run
 
 check-dependencies:
 		lein ancient
