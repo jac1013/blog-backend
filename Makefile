@@ -16,7 +16,7 @@ check-dependencies:
 		lein ancient
 
 coverage:
-		lein cloverage --html
+		lein cloverage --lcov
 
 check-vulnerabilities:
 		lein nvd check

@@ -47,3 +47,9 @@ jobs:
       - run:
           name: Generate Distribution
           command: lein uberjar
+
+      - coveralls/upload:
+          path_to_lcov: ./target/coverage/lcov.info
+          flag_name: Seding Coverage to Coveralls
+orbs:
+  coveralls: coveralls/coveralls@x.y.z
