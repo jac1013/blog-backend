@@ -32,19 +32,18 @@ jobs:
             - v1-dependencies-
 
       - run:
-          - name: Install Dependencies
-          - command: lein deps
+          name: Install Dependencies
+          command: lein deps
 
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "project.clj" }}
 
-      # run tests!
       - run:
-          - name: Unit Tests
-          - command: lein test
+          name: Unit Tests
+          command: lein test
 
       - run:
-          - name: Generate Distribution
-          - command: lein uberjar
+          name: Generate Distribution
+          command: lein uberjar
