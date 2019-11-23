@@ -49,8 +49,9 @@ jobs:
           command: lein uberjar
 
       - sonarcloud/scan
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.1
+
+  orbs:
+    sonarcloud: sonarsource/sonarcloud@1.0.1
 
   workflows:
     main:
