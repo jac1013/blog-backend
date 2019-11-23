@@ -1,5 +1,3 @@
 (ns blog-backend.domain.structures.like)
 
-(defrecord Like [^Integer id
-                 ^Integer article_id
-                 ^String ip_address])
+(defrecord Like [id article_id ip_address])
