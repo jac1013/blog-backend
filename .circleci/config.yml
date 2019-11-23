@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: Linter
-          command: make linter
+          command: make lint
 
       - run:
           name: Generate Test Coverage
