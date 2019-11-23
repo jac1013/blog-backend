@@ -33,7 +33,7 @@ jobs:
 
       - run:
           name: Install Dependencies
-          command: lein deps
+          command: make deps
 
       - save_cache:
           paths:
@@ -42,12 +42,24 @@ jobs:
 
       - run:
           name: Unit Tests
-          command: lein test
+          command: make test
+
+      - run:
+          name: Linter
+          command: make linter
 
       - run:
           name: Generate Test Coverage
           command: make coverage
 
       - run:
+          name: Check Dependencies
+          command: make check-dependencies
+
+      - run:
+          name: Check Vulnerabilities
+          command: make check-vulnerabilities
+
+      - run:
           name: Generate Distribution
-          command: lein uberjar
+          command: make build

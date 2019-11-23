@@ -16,12 +16,12 @@ check-dependencies:
 		lein ancient
 
 coverage:
-		lein cloverage --lcov
+		lein cloverage --html
 
 check-vulnerabilities:
 		lein nvd check
 
-ci-analysis:
+complete-analysis:
 		make lint coverage check-dependencies check-vulnerabilities
 
 
