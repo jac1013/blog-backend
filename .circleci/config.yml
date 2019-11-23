@@ -45,11 +45,29 @@ jobs:
           command: lein test
 
       - run:
+          name: Generate Test Coverage
+          command: make coverage
+
+      - run:
           name: Generate Distribution
           command: lein uberjar
 
+
+
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
+
+  test-coverage:
+    docker:
+      - image: circleci/node:10.0.0
+    steps:
+      - checkout
       - coveralls/upload:
           path_to_lcov: ./target/coverage/lcov.info
           flag_name: Seding Coverage to Coveralls
-orbs:
-  coveralls: coveralls/coveralls@1.0.4
+
+  workflows:
+    main-build:
+      jobs:
+        - build
+        - test-coverage
