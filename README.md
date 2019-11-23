@@ -10,7 +10,7 @@ Backend for a personal blog
 * [Leiningen](https://leiningen.org/)
     
 ## Install dependencies
-* `make deps`
+* `make`
     
 ## What you can do in this project
 * For a list of commands check [Makefile](./Makefile)
