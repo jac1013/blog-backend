@@ -8,6 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/clojure:lein-2.9.1
+      - image: circleci/node:10.0.0
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -52,22 +53,9 @@ jobs:
           name: Generate Distribution
           command: lein uberjar
 
-  test-coverage:
-    docker:
-      - image: circleci/node:10.0.0
-    steps:
-      - checkout
       - coveralls/upload:
           path_to_lcov: ./target/coverage/lcov.info
           flag_name: Seding Coverage to Coveralls
 
 orbs:
   coveralls: coveralls/coveralls@1.0.4
-
-workflows:
-  main-build:
-    jobs:
-      - build
-      - test-coverage:
-          requires:
-            - build
