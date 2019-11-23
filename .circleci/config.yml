@@ -63,10 +63,6 @@ jobs:
           command: make check-dependencies
 
       - run:
-          name: Check Vulnerabilities
-          command: make check-vulnerabilities
-
-      - run:
           name: Generate Distribution
           command: make build
 
