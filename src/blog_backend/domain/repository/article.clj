@@ -1,15 +1,24 @@
-(ns blog-backend.domain.repository.article
-  (:refer-clojure :exclude [find])
-  (:require [blog-backend.domain.structures.article]
-             [blog-backend.domain.structures.article :refer (map->Article)]))
+(ns blog-backend.domain.repository.article)
 
 (defprotocol ArticleRepository
   "Represents the interaction with a storage for article records"
-  (create! [article] "Creates an article")
-  (update! [article] "Updates an article")
-  (find [id] "Finds an article by ID")
-  (is_publish [id] "Whether or not an article is publish")
-  (publish! [id] "Publish an article")
-  (un_publish [id] "Put down an article"))
+  (createArticle [_ article] "Creates an article")
+  (updateArticle [_] "Updates an article")
+  (findArticle [_] "Finds an article by ID")
+  (is_publish [_] "Whether or not an article is publish")
+  (publish [_] "Publish an article")
+  (un_publish [_] "Put down an article"))
 
-(map->Article {:id "hello"})
+(deftype ArticleRepo []
+  ArticleRepository
+  (createArticle [_ article] article)
+  (updateArticle [this]
+    ((this)))
+  (findArticle [this]
+    ((this)))
+  (is_publish [this]
+    ((this)))
+  (publish [this]
+    ((this)))
+  (un_publish [this]
+    ((this))))
