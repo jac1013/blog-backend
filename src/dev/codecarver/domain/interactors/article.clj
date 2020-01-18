@@ -7,20 +7,26 @@
                                                             set_publish
                                                             set_un_publish]]))
 
-(defn create [article repository]
-  (save repository article))
+(defprotocol ArticleInteractor
+  "Represents the interaction with a storage for article records"
+  (create [_ article] "Creates an article")
+  (update [_ article] "Updates an article")
+  (get [_ id] "Gets an article by ID")
+  (is_publish [_ id] "Whether or not an article is publish")
+  (publish [_ id] "Publish an article")
+  (un_publish [_ id] "Put down an article"))
 
-(defn update [article repository]
-  (modify repository article))
+(deftype ArticleInteractorImpl [repository]
+  ArticleInteractor
+  (create [_ article] (save repository article))
+  (update [_ article] (modify repository article))
+  (get [_ id] (find repository id))
+  (is_publish [_ id] (check_publish repository id))
+  (publish [_ id] (set_publish repository id))
+  (un_publish [_ id] (set_un_publish repository id)))
 
-(defn get [article repository]
-  (find repository article))
+(defn articleInteractor [repository]
+  (ArticleInteractorImpl. repository))
 
-(defn is_publish [article repository]
-  (check_publish repository article))
 
-(defn publish [article repository]
-  (set_publish repository article))
 
-(defn un_publish [article repository]
-  (set_un_publish repository article))
