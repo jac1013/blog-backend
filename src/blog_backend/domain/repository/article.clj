@@ -9,16 +9,3 @@
   (is_publish [_] "Whether or not an article is publish")
   (publish [_] "Publish an article")
   (un_publish [_] "Put down an article"))
-
-(deftype ArticleRepo []
-  ArticleRepository
-  (save [_ article] article)
-  (modify [_ article] article)
-  (find [this]
-    ((this)))
-  (is_publish [this]
-    ((this)))
-  (publish [this]
-    ((this)))
-  (un_publish [this]
-    ((this))))
