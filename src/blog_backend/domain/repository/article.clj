@@ -1,20 +1,21 @@
-(ns blog-backend.domain.repository.article)
+(ns blog-backend.domain.repository.article
+  (:refer-clojure :exclude [update find]))
 
 (defprotocol ArticleRepository
   "Represents the interaction with a storage for article records"
-  (createArticle [_ article] "Creates an article")
-  (updateArticle [_] "Updates an article")
-  (findArticle [_] "Finds an article by ID")
+  (save [_ article] "Creates an article")
+  (update [_] "Updates an article")
+  (find [_] "Finds an article by ID")
   (is_publish [_] "Whether or not an article is publish")
   (publish [_] "Publish an article")
   (un_publish [_] "Put down an article"))
 
 (deftype ArticleRepo []
   ArticleRepository
-  (createArticle [_ article] article)
-  (updateArticle [this]
+  (save [_ article] article)
+  (update [this]
     ((this)))
-  (findArticle [this]
+  (find [this]
     ((this)))
   (is_publish [this]
     ((this)))
