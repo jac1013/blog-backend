@@ -7,8 +7,7 @@
   (modify [_ article] article)
   (find [_ id] id)
   (check_publish [this id] true)
-  (publish [this]
-    ((this)))
+  (set_publish [this id] "published")
   (un_publish [this]
     ((this))))
 
