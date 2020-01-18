@@ -8,8 +8,7 @@
   (find [_ id] id)
   (check_publish [this id] true)
   (set_publish [this id] "published")
-  (un_publish [this]
-    ((this))))
+  (set_un_publish [this id] "unpublished"))
 
 
 (defn articleRepo []

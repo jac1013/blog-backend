@@ -8,4 +8,4 @@
   (find [_ id] "Finds an article by ID")
   (check_publish [_ id] "Whether or not an article is publish")
   (set_publish [_ id] "Publish an article")
-  (un_publish [_] "Put down an article"))
+  (set_un_publish [_ id] "Put down an article"))

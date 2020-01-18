@@ -1,6 +1,6 @@
 (ns blog-backend.domain.interactors.article
   (:refer-clojure :exclude [update find get])
-  (:require [blog-backend.domain.repository.article :refer [save, modify find check_publish set_publish]]))
+  (:require [blog-backend.domain.repository.article :refer [save, modify find check_publish set_publish set_un_publish]]))
 
 (defn create [article repository]
   (save repository article))
@@ -16,3 +16,6 @@
 
 (defn publish [article repository]
   (set_publish repository article))
+
+(defn un_publish [article repository]
+  (set_un_publish repository article))
