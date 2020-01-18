@@ -1,5 +1,5 @@
 (ns blog-backend.repository.postgresql.article
-  (:import (blog_backend.domain.repository.article ArticleRepository)))
+  (:require [blog-backend.domain.repository.article :refer [ArticleRepository]]))
 
 (deftype ArticleRepo []
   ArticleRepository
