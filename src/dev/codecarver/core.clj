@@ -1,8 +1,8 @@
-(ns blog-backend.core
+(ns dev.codecarver.core
   (:gen-class)
   (:refer-clojure :exclude [update get])
-  (:require [blog-backend.repository.postgresql.article :refer [articleRepo]])
-  (:require [blog-backend.domain.interactors.article :refer [create
+  (:require [dev.codecarver.repository.postgresql.article :refer [articleRepo]])
+  (:require [dev.codecarver.domain.interactors.article :refer [create
                                                              update
                                                              get
                                                              is_publish

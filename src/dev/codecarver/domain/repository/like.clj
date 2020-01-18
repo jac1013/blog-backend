@@ -1,4 +1,4 @@
-(ns blog-backend.domain.repository.like)
+(ns dev.codecarver.domain.repository.like)
 
 (defprotocol LikeRepository
   "Represents the interaction with storage for like records"

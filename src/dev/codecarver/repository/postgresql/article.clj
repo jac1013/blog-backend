@@ -1,5 +1,5 @@
-(ns blog-backend.repository.postgresql.article
-  (:require [blog-backend.domain.repository.article :refer [ArticleRepository]]))
+(ns dev.codecarver.repository.postgresql.article
+  (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]))
 
 (deftype ArticleRepo []
   ArticleRepository

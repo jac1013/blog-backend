@@ -1,4 +1,4 @@
-(ns blog-backend.domain.repository.article
+(ns dev.codecarver.domain.repository.article
   (:refer-clojure :exclude [update find]))
 
 (defprotocol ArticleRepository

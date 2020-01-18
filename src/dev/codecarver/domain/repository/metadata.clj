@@ -1,4 +1,4 @@
-(ns blog-backend.domain.repository.metadata)
+(ns dev.codecarver.domain.repository.metadata)
 
 (defprotocol MetadataRepository
   "Represent the interaction with storage for metadata of the blog record"

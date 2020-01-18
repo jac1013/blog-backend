@@ -1,6 +1,6 @@
-# Blog-backend
+# dev.codecarver
 
-[![CircleCI](https://circleci.com/gh/jac1013/blog-backend.svg?style=svg)](https://circleci.com/gh/jac1013/blog-backend)
+[![CircleCI](https://circleci.com/gh/jac1013/dev.codecarver.svg?style=svg)](https://circleci.com/gh/jac1013/dev.codecarver)
 
 Backend for a personal blog
 

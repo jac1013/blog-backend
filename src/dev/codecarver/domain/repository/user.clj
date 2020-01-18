@@ -1,4 +1,4 @@
-(ns blog-backend.domain.repository.user)
+(ns dev.codecarver.domain.repository.user)
 
 (defprotocol UserRepository
   "Represents the interaction with storage for user records"

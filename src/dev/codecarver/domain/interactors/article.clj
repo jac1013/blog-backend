@@ -1,6 +1,6 @@
-(ns blog-backend.domain.interactors.article
+(ns dev.codecarver.domain.interactors.article
   (:refer-clojure :exclude [update find get])
-  (:require [blog-backend.domain.repository.article :refer [save
+  (:require [dev.codecarver.domain.repository.article :refer [save
                                                             modify
                                                             find
                                                             check_publish

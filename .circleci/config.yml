@@ -70,13 +70,13 @@ jobs:
           name: Move JAR to artifacts
           command: |
               mkdir jar
-              mv ./target/uberjar/blog-backend-0.1.0-SNAPSHOT-standalone.jar jar/
+              mv ./target/uberjar/dev.codecarver-0.1.0-SNAPSHOT-standalone.jar jar/
 
       - store_artifacts:
           path: ./coverage/lcov.info
           prefix: tests
 
       - store_artifacts:
-          path: ./jar/blog-backend-0.1.0-SNAPSHOT-standalone.jar
+          path: ./jar/dev.codecarver-0.1.0-SNAPSHOT-standalone.jar
           prefix: build
 
