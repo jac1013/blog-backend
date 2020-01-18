@@ -5,8 +5,7 @@
   ArticleRepository
   (save [_ article] article)
   (modify [_ article] article)
-  (find [this]
-    ((this)))
+  (find [_ id] id)
   (is_publish [this]
     ((this)))
   (publish [this]
