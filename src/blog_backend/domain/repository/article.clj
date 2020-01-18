@@ -4,7 +4,7 @@
 (defprotocol ArticleRepository
   "Represents the interaction with a storage for article records"
   (save [_ article] "Creates an article")
-  (update [_] "Updates an article")
+  (modify [_ article] "Updates an article")
   (find [_] "Finds an article by ID")
   (is_publish [_] "Whether or not an article is publish")
   (publish [_] "Publish an article")
@@ -13,8 +13,7 @@
 (deftype ArticleRepo []
   ArticleRepository
   (save [_ article] article)
-  (update [this]
-    ((this)))
+  (modify [_ article] article)
   (find [this]
     ((this)))
   (is_publish [this]
