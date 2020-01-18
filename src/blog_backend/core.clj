@@ -1,7 +1,7 @@
 (ns blog-backend.core
   (:gen-class)
   (:refer-clojure :exclude [update get])
-  (:require [blog-backend.domain.interactors.article :refer [create update get]])
+  (:require [blog-backend.domain.interactors.article :refer [create update get is_publish]])
   (:require [blog-backend.repository.postgresql.article :refer [articleRepo]]))
 
 
@@ -10,5 +10,6 @@
   [& args]
   (println (create {:id 1} (articleRepo)))
   (println (update {:id 2} (articleRepo)))
-  (println (get 5 (articleRepo))))
+  (println (get 5 (articleRepo)))
+  (println (is_publish 5 (articleRepo))))
 
