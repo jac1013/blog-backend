@@ -2,13 +2,13 @@
   (:gen-class)
   (:refer-clojure :exclude [update get])
   (:require [dev.codecarver.repository.postgresql.article :refer [articleRepo]])
+  (:require [dev.codecarver.domain.interactors.implementations.article :refer [articleInteractor]])
   (:require [dev.codecarver.domain.interactors.article :refer [create
                                                                update
                                                                get
                                                                is_publish
                                                                publish
-                                                               un_publish
-                                                               articleInteractor]]))
+                                                               un_publish]]))
 
 
 (defn -main
