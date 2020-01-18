@@ -6,9 +6,9 @@
   (save [_ article] article)
   (modify [_ article] article)
   (find [_ id] id)
-  (check_publish [this id] true)
-  (set_publish [this id] "published")
-  (set_un_publish [this id] "unpublished"))
+  (check_publish [_ _] true)
+  (set_publish [_ _] "published")
+  (set_un_publish [_ _] "unpublished"))
 
 
 (defn articleRepo []

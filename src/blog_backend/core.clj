@@ -1,8 +1,13 @@
 (ns blog-backend.core
   (:gen-class)
   (:refer-clojure :exclude [update get])
-  (:require [blog-backend.domain.interactors.article :refer [create update get is_publish publish un_publish]])
-  (:require [blog-backend.repository.postgresql.article :refer [articleRepo]]))
+  (:require [blog-backend.repository.postgresql.article :refer [articleRepo]])
+  (:require [blog-backend.domain.interactors.article :refer [create
+                                                             update
+                                                             get
+                                                             is_publish
+                                                             publish
+                                                             un_publish]]))
 
 
 (defn -main
