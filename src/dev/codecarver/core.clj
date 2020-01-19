@@ -1,7 +1,7 @@
 (ns dev.codecarver.core
   (:gen-class)
   (:refer-clojure :exclude [update get])
-  (:require [dev.codecarver.repository.postgresql.article :refer [articleRepo]])
+  (:require [dev.codecarver.repository.in-memory.article :refer [articleRepo]])
   (:require [dev.codecarver.domain.interactors.implementations.article :refer [articleInteractor]])
   (:require [dev.codecarver.domain.interactors.article :refer [create
                                                                update

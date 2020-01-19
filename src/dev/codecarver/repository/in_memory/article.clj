@@ -1,4 +1,4 @@
-(ns dev.codecarver.repository.postgresql.article
+(ns dev.codecarver.repository.in-memory.article
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]))
 
 (deftype ArticleRepo []
