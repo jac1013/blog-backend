@@ -2,7 +2,7 @@
   (:refer-clojure :exclude [update find get]))
 
 (defprotocol ArticleInteractor
-  "Represents the interaction with a storage for article records"
+  "Use cases around Articles that the system accomplish"
   (create [_ article] "Creates an article")
   (update [_ article] "Updates an article")
   (get [_ id] "Gets an article by ID")

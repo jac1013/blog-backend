@@ -3,6 +3,6 @@
 
 (defprotocol ArticleRepository
   "Represents the interaction with a storage for article records"
-  (save [_ article] "Creates an article")
-  (modify [_ article] "Updates an article")
+  (save [_ article] "Saves an article")
+  (modify [_ article] "Modifies an article")
   (find [_ id] "Finds an article by ID"))
