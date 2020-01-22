@@ -1,5 +1,6 @@
 (ns dev.codecarver.domain.interactors.implementations.article
   (:refer-clojure :exclude [update find get])
+  (:require [dev.codecarver.repository.in-memory.article :refer [articleRepo]])
   (:require [dev.codecarver.domain.repository.article :refer [save
                                                               modify
                                                               find]])
@@ -14,5 +15,5 @@
   (publish [_ id] (modify repository id))
   (un_publish [_ id] (modify repository id)))
 
-(defn articleInteractor [repository]
-  (ArticleInteractorImpl. repository))
+(defn articleInteractor []
+  (ArticleInteractorImpl. (articleRepo)))

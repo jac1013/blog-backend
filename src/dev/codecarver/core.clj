@@ -14,7 +14,7 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (let [interactor (articleInteractor (articleRepo))]
+  (let [interactor (articleInteractor)]
     (println (create interactor {:id 1}))
     (println (update interactor {:id 1 :title "hello"}))
     (println (get interactor 5))
