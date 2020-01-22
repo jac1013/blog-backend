@@ -6,4 +6,4 @@
 (defn create_article [request]
   {:status 200
    :headers {"Content-Type" "application/json"}
-   :body (create (articleInteractor) {:id 1})})
+   :body (create (articleInteractor) {:id 1 :hello (get-in request [:params "ciao"])})})

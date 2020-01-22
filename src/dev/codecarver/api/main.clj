@@ -6,6 +6,11 @@
 
 
 (def app
-  (wrap-json-response create_article))
+  ( -> create_article
+       (wrap-params)
+       (wrap-json-response)))
 
 (run-jetty app {:port 3000})
+
+
+
