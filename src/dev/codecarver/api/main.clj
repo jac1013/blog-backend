@@ -1,10 +1,11 @@
 (ns dev.codecarver.api.main
-  (:use ring.adapter.jetty))
+  (:use ring.adapter.jetty)
+  (:require [ring.middleware.params :refer [wrap-params]])
+  (:require [ring.middleware.json :refer [wrap-json-response]])
+  (:require [dev.codecarver.api.article :refer [create_article]]))
 
 
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Hello World"})
+(def app
+  (wrap-json-response create_article))
 
-(run-jetty handler {:port 3000})
+(run-jetty app {:port 3000})
