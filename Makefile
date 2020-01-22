@@ -18,7 +18,10 @@ build:
 		make clean && lein uberjar
 
 run:
-		lein run
+		lein core-test
+
+api:
+		lein api
 
 check-dependencies:
 		lein ancient

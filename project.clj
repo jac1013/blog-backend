@@ -9,9 +9,14 @@
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}}
+  :profiles {:uberjar {:aot :all}
+             :api {:main dev.codecarver.api.main}
+             :core-test {:main dev.codecarver.core}}
+  :aliases {"api" ["with-profile" "api" "run"]
+            "core-test" ["with-profile" "core-test" "run"]}
   :plugins [[lein-kibit "0.1.8"]
             [lein-ancient "0.6.15"]
             [lein-cloverage "1.1.2"]
             [lein-nvd "1.3.0"]])
+
 
