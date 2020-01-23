@@ -7,7 +7,8 @@
                  [ring/ring-core "1.6.3"]
                  [ring/ring-jetty-adapter "1.6.3"]
                  [ring/ring-json "0.5.0"]
-                 [compojure "1.6.1"]]
+                 [compojure "1.6.1"]
+                 [ring/ring-defaults "0.3.2"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
