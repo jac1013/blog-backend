@@ -7,4 +7,4 @@
                                to_validate (get options :to_validate)]
                            (if (valid? validator to_validate)
                              (action)
-                             (validator to_validate))))
+                             (identity {:validation_error (validator to_validate)}))))
