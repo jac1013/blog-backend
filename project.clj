@@ -8,7 +8,8 @@
                  [ring/ring-jetty-adapter "1.6.3"]
                  [ring/ring-json "0.5.0"]
                  [compojure "1.6.1"]
-                 [ring/ring-defaults "0.3.2"]]
+                 [ring/ring-defaults "0.3.2"]
+                 [com.novemberain/validateur "2.5.0"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"

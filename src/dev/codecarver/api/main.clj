@@ -5,6 +5,7 @@
   (:require [ring.middleware.defaults :refer :all])
   (:require [ring.middleware.params :refer [wrap-params]])
   (:require [ring.middleware.json :refer [wrap-json-response]])
+  (:require [validateur.validation :refer :all])
   (:require [dev.codecarver.api.article :refer [create_article]]))
 
 
@@ -17,6 +18,7 @@
            (route/not-found "<h1>Page not found</h1>"))
 
 (run-jetty app {:port 3000})
+
 
 
 
