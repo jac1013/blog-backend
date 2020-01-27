@@ -5,6 +5,7 @@
                                                               modify
                                                               find]])
   (:require [dev.codecarver.domain.interactors.article :refer [ArticleInteractor]])
+  (:require [dev.codecarver.domain.util.util :refer :all])
   (:require [validateur.validation :refer :all]))
 
 (def ^:private validator (validation-set
@@ -12,14 +13,10 @@
                            (presence-of :body)
                            (length-of :title :within (range 10 50))))
 
-(defn ^:private validate [action article] (if (valid? validator article)
-                                            (action)
-                                            (validator article)))
-
 (deftype ArticleInteractorImpl [repository]
   ArticleInteractor
-  (create [_ article] (validate (fn [] (save repository article)) article))
-  (update [_ article] (validate (fn [] (modify repository article)) article))
+  (create [_ article] (validate {:action (fn [] (save repository article)), :validator validator :to_validate article}))
+  (update [_ article] (validate {:action (fn [] (modify repository article)), :validator validator :to_validate article}))
   (get [_ id] (find repository id))
   (is_publish [_ id] (modify repository id))
   (publish [_ id] (modify repository id))
