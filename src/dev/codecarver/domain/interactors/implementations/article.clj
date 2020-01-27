@@ -12,14 +12,14 @@
                            (presence-of :body)
                            (length-of :title :within (range 10 50))))
 
+(defn ^:private validate [action article] (if (valid? validator article)
+                                            (action)
+                                            (validator article)))
+
 (deftype ArticleInteractorImpl [repository]
   ArticleInteractor
-  (create [_ article] ( if (valid? validator article)
-                        (save repository article)
-                        (validator article)))
-  (update [_ article] ( if (valid? validator article)
-                        (modify repository article)
-                        (validator article)))
+  (create [_ article] (validate (fn [] (save repository article)) article))
+  (update [_ article] (validate (fn [] (modify repository article)) article))
   (get [_ id] (find repository id))
   (is_publish [_ id] (modify repository id))
   (publish [_ id] (modify repository id))
