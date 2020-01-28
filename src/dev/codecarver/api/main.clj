@@ -36,7 +36,10 @@
              (wrap-json-response))
            (route/not-found "<h1>Page not found</h1>"))
 
-(run-jetty app {:port 3000})
+(defn -main [& args]
+  (run-jetty app {:port 3000})
+  )
+
 
 
 
