@@ -18,9 +18,9 @@
   (create [_ article] (validate {:action (fn [] (save repository article)), :validator validator :to_validate article}))
   (update [_ article] (validate {:action (fn [] (modify repository article)), :validator validator :to_validate article}))
   (get [_ id] (find repository id))
-  (is_publish [_ id] (modify repository id))
-  (publish [_ id] (modify repository id))
-  (un_publish [_ id] (modify repository id)))
+  (is_publish [_ id] id )
+  (publish [_ id] id)
+  (un_publish [_ id] id))
 
 (defn articleInteractor []
   (ArticleInteractorImpl. (articleRepo)))
