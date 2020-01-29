@@ -1,4 +1,4 @@
-(ns dev.codecarver.api.article
+(ns dev.codecarver.api.controllers.article
   (:require [dev.codecarver.domain.interactors.implementations.article :refer [articleInteractor]])
   (:require [dev.codecarver.domain.interactors.article :refer [create]]))
 
