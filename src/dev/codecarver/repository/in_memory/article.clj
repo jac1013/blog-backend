@@ -3,7 +3,8 @@
 
 (def articles (atom {}))
 (defn save! [article]
-  (swap! articles assoc (:id article) article))
+  (swap! articles assoc (:id article) article)
+   (get @articles (:id article)))
 
 (deftype ArticleRepo []
   ArticleRepository
