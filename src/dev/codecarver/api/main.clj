@@ -31,9 +31,9 @@
            (->
              (GET "/article" [] create_article)
              (wrap-defaults api-defaults)
-             (wrap-params)
-             (wrap-response)
-             (wrap-json-response))
+             wrap-params
+             (wrap-routes wrap-response)
+             wrap-json-response)
            (route/not-found "<h1>Page not found</h1>"))
 
 (defn -main [& args]
