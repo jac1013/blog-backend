@@ -2,9 +2,12 @@
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]))
 
 (def articles (atom {}))
+(def counter (atom 0))
+
 (defn save! [article]
-  (swap! articles assoc (:id article) article)
-   (get @articles (:id article)))
+  (let [id (str (swap! counter inc))]
+    (swap! articles assoc id (assoc article :id id))
+    (get @articles id)))
 
 (deftype ArticleRepo []
   ArticleRepository
