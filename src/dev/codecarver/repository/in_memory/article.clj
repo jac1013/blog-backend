@@ -9,10 +9,15 @@
     (swap! articles assoc id (assoc article :id id))
     (get @articles id)))
 
+(defn modify! [article]
+  (let [id (get article :id) db_article (get @articles id)]
+    (swap! articles assoc id (merge db_article article))
+    (get @articles id)))
+
 (deftype ArticleRepo []
   ArticleRepository
   (save [_ article] (save! article))
-  (modify [_ article] (save! article))
+  (modify [_ article] (modify! article))
   (find [_ id] (get @articles id))
   (is_publish [this id] (boolean (get (.find this id) :is_publish))))
 
