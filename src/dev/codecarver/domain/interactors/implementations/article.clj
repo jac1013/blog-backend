@@ -19,7 +19,7 @@
   (create [_ article] (validate {:action (fn [] (save repository article)), :validator validator :to_validate article}))
   (update [_ article] (validate {:action (fn [] (modify repository article)), :validator validator :to_validate article}))
   (get [_ id] (find repository id))
-  (is_publish [_ id] id )
+  (is_publish [this id] (boolean (c/get (.get this id) :is_publish)) )
   (publish [_ id] id)
   (un_publish [_ id] id))
 
