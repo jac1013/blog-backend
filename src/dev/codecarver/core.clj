@@ -20,7 +20,7 @@
     (println (get interactor "1"))
     (println (is_publish interactor "1"))
     (println (publish interactor "1"))
-    (println (un_publish interactor 5))))
+    (println (un_publish interactor "1"))))
 
 
 
