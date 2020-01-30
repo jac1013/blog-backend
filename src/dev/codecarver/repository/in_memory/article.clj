@@ -9,7 +9,7 @@
     (swap! articles assoc id (assoc article :id id))
     (get @articles id)))
 
-(defn modify! [article]
+(defn update! [article]
   (let [id (get article :id) db_article (get @articles id)]
     (swap! articles assoc id (merge (select-keys db_article (keys article)) article))
     (get @articles id)))
@@ -17,7 +17,7 @@
 (deftype ArticleRepo []
   ArticleRepository
   (save [_ article] (save! article))
-  (modify [_ article] (modify! article))
+  (update [_ article] (update! article))
   (find [_ id] (get @articles id)))
 
 
