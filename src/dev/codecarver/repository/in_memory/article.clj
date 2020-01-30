@@ -13,7 +13,8 @@
   ArticleRepository
   (save [_ article] (save! article))
   (modify [_ article] (save! article))
-  (find [_ id] (get @articles id)))
+  (find [_ id] (get @articles id))
+  (is_publish [this id] (boolean (get (.find this id) :is_publish))))
 
 
 (defn articleRepo []

@@ -15,10 +15,10 @@
   "I don't do a whole lot ... yet."
   [& args]
   (let [interactor (articleInteractor)]
-    (println (create interactor {:title "longer than ten characters title" :body "He we have a body"}))
+    (println (create interactor {:title "longer than ten characters title" :body "He we have a body" :is_publish true}))
     (println (update interactor {:title "longer than ten characters title2" :body "He we have a body2"}))
     (println (get interactor "1"))
-    (println (is_publish interactor 5))
+    (println (is_publish interactor "1"))
     (println (publish interactor 5))
     (println (un_publish interactor 5))))
 
