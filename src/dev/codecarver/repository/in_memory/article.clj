@@ -11,7 +11,7 @@
 
 (defn modify! [article]
   (let [id (get article :id) db_article (get @articles id)]
-    (swap! articles assoc id (merge db_article article))
+    (swap! articles assoc id (merge (select-keys db_article (keys article)) article))
     (get @articles id)))
 
 (deftype ArticleRepo []
