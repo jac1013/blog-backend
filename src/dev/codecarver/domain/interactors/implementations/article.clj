@@ -20,7 +20,7 @@
   (update [_ article] (validate {:action (fn [] (modify repository article)), :validator validator :to_validate article}))
   (get [_ id] (find repository id))
   (is_publish [this id] (boolean (c/get (.get this id) :is_publish)) )
-  (publish [_ id] id)
+  (publish [this id] (.update this (assoc (.get this id) :is_publish true :url "this is a generated url")))
   (un_publish [_ id] id))
 
 (defn articleInteractor []
