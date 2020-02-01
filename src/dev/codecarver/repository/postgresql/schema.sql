@@ -4,7 +4,7 @@ CREATE TABLE blog_metadata (
     subtitle varchar(500) NOT NULL,
     copyright varchar (100),
     logo_credit varchar(200)
-)
+);
 
 CREATE TABLE article (
     id SERIAL,
@@ -21,11 +21,11 @@ CREATE TABLE like (
     article_id INTEGER NOT NULL,
     ip_address varchar(45) NOT NULL,
     FOREIGN KEY (article_id) REFERENCES article (id)
-)
+);
 
 CREATE TABLE user (
     id SERIAL,
     username varchar(200) NOT NULL,
     password varchar NOT NULL
-)
+);
 
