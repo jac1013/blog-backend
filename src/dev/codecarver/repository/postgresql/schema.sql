@@ -23,3 +23,9 @@ CREATE TABLE like (
     FOREIGN KEY (article_id) REFERENCES article (id)
 )
 
+CREATE TABLE user (
+    id SERIAL
+    username varchar(200)
+    password varchar
+)
+
