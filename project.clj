@@ -10,8 +10,8 @@
                  [compojure "1.6.1"]
                  [ring/ring-defaults "0.3.2"]
                  [com.novemberain/validateur "2.6.0"]
-                 [org.clojure/java.jdbc "0.6.1"]
-                 [org.postgresql/postgresql "9.4-1201-jdbc41"]]
+                 [org.clojure/java.jdbc "0.7.11"]
+                 [org.postgresql/postgresql "42.2.9"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
