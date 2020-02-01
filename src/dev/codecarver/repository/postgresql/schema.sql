@@ -1,3 +1,11 @@
+CREATE TABLE blog_metadata (
+    id SERIAL
+    title varchar(200)
+    subtitle varchar(500)
+    copyright varchar (100)
+    logo_credit varchar(200)
+)
+
 CREATE TABLE article (
     id            SERIAL,
     title         varchar(200),
