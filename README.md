@@ -8,6 +8,8 @@ Backend for a personal blog
 ## Pre-requisites
 * [Clojure](https://clojure.org/guides/getting_started)
 * [Leiningen](https://leiningen.org/)
+* [Docker](https://www.docker.com/)
+* [Docker-compose](https://docs.docker.com/compose/)
     
 ## Install dependencies
 * `make`
