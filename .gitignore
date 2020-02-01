@@ -11,5 +11,5 @@ pom.xml.asc
 .hgignore
 .hg/
 .env
-postgresql
-postgresql_data
+./postgresql
+./postgresql_data
