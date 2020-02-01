@@ -7,3 +7,11 @@ CREATE TABLE article (
     url           varchar(500)
     repository_url varchar(500)
 );
+
+CREATE TABLE like (
+    id SERIAL
+    article_id INTEGER
+    ip_address varchar(45)
+    FOREIGN KEY (article_id) REFERENCES article (id)
+)
+
