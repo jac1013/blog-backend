@@ -9,7 +9,9 @@
                  [ring/ring-json "0.5.0"]
                  [compojure "1.6.1"]
                  [ring/ring-defaults "0.3.2"]
-                 [com.novemberain/validateur "2.6.0"]]
+                 [com.novemberain/validateur "2.6.0"]
+                 [org.clojure/java.jdbc "0.6.1"]
+                 [org.postgresql/postgresql "9.4-1201-jdbc41"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
