@@ -1,10 +1,15 @@
 (ns dev.codecarver.repository.postgresql.article
-  (:require [environ.core :refer [env]])
+  (:require [dotenv :refer [env]])
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]
             [clojure.java.jdbc :as sql]))
 
 (defn ^:private get_connection_url []
-  (env :db-url))
+  (format "postgresql://%s:%s@%s:%s/%s"
+          (env :POSTGRES_USER)
+          (env :POSTGRES_PASSWORD)
+          (env :POSTGRES_HOST)
+          (env :POSTGRES_PORT)
+          (env :POSTGRES_DB)))
 
 (deftype ArticleRepoPostgreSQL []
   ArticleRepository
