@@ -21,5 +21,5 @@
   (publish [this id] (.update this (assoc (.get this id) :is_publish true :url "this is a generated url")))
   (un_publish [this id] (.update this (dissoc (assoc (.get this id) :is_publish false) :url))))
 
-(defn articleInteractor []
-  (ArticleInteractorImpl. (articleRepo)))
+(defn articleInteractor [repo]
+  (ArticleInteractorImpl. repo))
