@@ -13,7 +13,7 @@
 
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Main entry point working as an integration tests"
   [& args]
   (let [interactor (articleInteractor (articleRepoPostgreSQL))]
     (println (create interactor {:title "longer than ten characters title" :body "He we have a body" :is_publish false}))
