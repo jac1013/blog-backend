@@ -1,7 +1,7 @@
 (ns dev.codecarver.repository.postgresql.article
   (:require [dev.codecarver.util.env :refer [get-env]])
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]
-            [clojure.java.jdbc :as sql]))
+            [clojure.java.jdbc :as jdbc]))
 
 (def ^:private db
   {:dbtype   "postgres"
@@ -11,13 +11,18 @@
 
 (deftype ArticleRepoPostgreSQL []
   ArticleRepository
-  (save! [_ article] (sql/insert!
+  (save! [_ article] (jdbc/insert!
                        db
                        :article article))
-  (update! [_ article] (sql/update!
-                         db
-                         :article article ["id = ?" (:id article)]))
-  (find [_ id] (sql/get-by-id
+  (update! [this article] (jdbc/with-db-transaction
+                            [tx db]
+                            (let [id (:id article)]
+                              (jdbc/update!
+                                tx
+                                :article article ["id = ?" id])
+                              (.find this id))
+                            ))
+  (find [_ id] (jdbc/get-by-id
                  db
                  :article id)))
 
