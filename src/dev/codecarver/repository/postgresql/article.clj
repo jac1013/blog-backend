@@ -1,26 +1,24 @@
 (ns dev.codecarver.repository.postgresql.article
-  (:require [dotenv :refer [env]])
+  (:require [dev.codecarver.util.env :refer [get-env]])
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]
             [clojure.java.jdbc :as sql]))
 
-(defn ^:private get_connection_url []
-  (format "postgresql://%s:%s@%s:%s/%s"
-          (env :POSTGRES_USER)
-          (env :POSTGRES_PASSWORD)
-          (env :POSTGRES_HOST)
-          (env :POSTGRES_PORT)
-          (env :POSTGRES_DB)))
+(def ^:private db
+  {:dbtype   "postgres"
+   :dbname   (get-env :POSTGRES_DB "blog")
+   :user     (get-env :POSTGRES_USER "admin")
+   :password (get-env :POSTGRES_PASSWORD "admin")})
 
 (deftype ArticleRepoPostgreSQL []
   ArticleRepository
   (save! [_ article] (sql/insert!
-                       (get_connection_url)
+                       db
                        :article article))
   (update! [_ article] (sql/update!
-                         (get_connection_url)
+                         db
                          :article article ["id = ?" (:id article)]))
   (find [_ id] (sql/get-by-id
-                 (get_connection_url)
+                 db
                  :article id)))
 
 (defn articleRepoPostgreSQL []
