@@ -13,3 +13,4 @@ pom.xml.asc
 .env
 ./postgresql
 ./postgresql_data
+.lein-env
