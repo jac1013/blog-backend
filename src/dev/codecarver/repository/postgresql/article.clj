@@ -4,7 +4,10 @@
 
 (deftype ArticleRepoPostgreSQL []
   ArticleRepository
-  (save! [_ article] (sql/insert! "postgresql://admin:admin@localhost:5432/blog"
-                                  :article article))
-  (update! [this article])
-  (find [this id]))
+  (save! [_ article] (sql/insert!
+                       "postgresql://admin:admin@localhost:5432/blog"
+                       :article article))
+  (update! [_ article] (sql/update!
+                         "postgresql://admin:admin@localhost:5432/blog"
+                         :article article ["id = ?" (:id article)]))
+  (find [_ id] ())
