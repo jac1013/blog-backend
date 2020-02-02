@@ -1,31 +1,30 @@
 CREATE TABLE blog_metadata (
     id SERIAL,
-    title varchar(200) NOT NULL,
-    subtitle varchar(500) NOT NULL,
-    copyright varchar (100),
-    logo_credit varchar(200)
+    title VARCHAR(200) NOT NULL,
+    subtitle VARCHAR(500) NOT NULL,
+    copyright VARCHAR (100),
+    logo_credit VARCHAR(200)
 );
 
 CREATE TABLE article (
-    id SERIAL,
-    title varchar(200) NOT NULL,
-    body varchar NOT NULL ,
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    body VARCHAR NOT NULL ,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    url varchar(500),
-    repository_url varchar(500)
+    url VARCHAR(500),
+    repository_url VARCHAR(500)
 );
 
-CREATE TABLE like (
+CREATE TABLE plus_one (
     id SERIAL,
-    article_id INTEGER NOT NULL,
-    ip_address varchar(45) NOT NULL,
-    FOREIGN KEY (article_id) REFERENCES article (id)
+    article_id INTEGER REFERENCES article,
+    ip_address VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE user (
+CREATE TABLE "user" (
     id SERIAL,
-    username varchar(200) NOT NULL,
-    password varchar NOT NULL
+    username VARCHAR(200) NOT NULL,
+    password VARCHAR NOT NULL
 );
 
