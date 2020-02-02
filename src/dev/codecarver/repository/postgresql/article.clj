@@ -10,4 +10,6 @@
   (update! [_ article] (sql/update!
                          "postgresql://admin:admin@localhost:5432/blog"
                          :article article ["id = ?" (:id article)]))
-  (find [_ id] ())
+  (find [_ id] (sql/get-by-id
+                    "postgresql://admin:admin@localhost:5432/blog"
+                    :article id)))
