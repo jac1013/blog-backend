@@ -13,7 +13,8 @@ CREATE TABLE article (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     url VARCHAR(500),
-    repository_url VARCHAR(500)
+    repository_url VARCHAR(500),
+    is_publish BOOLEAN DEFAULT false
 );
 
 CREATE TABLE plus_one (

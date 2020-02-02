@@ -13,3 +13,6 @@
   (find [_ id] (sql/get-by-id
                     "postgresql://admin:admin@localhost:5432/blog"
                     :article id)))
+
+(defn articleRepoPostgreSQL []
+  (ArticleRepoPostgreSQL.))

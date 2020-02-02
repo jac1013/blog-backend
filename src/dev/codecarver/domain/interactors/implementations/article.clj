@@ -1,7 +1,6 @@
 (ns dev.codecarver.domain.interactors.implementations.article
   (:refer-clojure :exclude [update find get])
   (:require [clojure.core :as c])
-  (:require [dev.codecarver.repository.in-memory.article :refer [articleRepo]])
   (:require [dev.codecarver.domain.repository.article :as repo])
   (:require [dev.codecarver.domain.interactors.article :refer [ArticleInteractor]])
   (:require [dev.codecarver.domain.util.util :refer :all])
