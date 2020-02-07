@@ -1,6 +1,5 @@
 (ns dev.codecarver.domain.util.util
-  (:require [validateur.validation :refer :all]))
-
+  (:require [validateur.validation :refer [valid?]]))
 
 (defn validate
   [options]
