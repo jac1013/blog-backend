@@ -1,5 +1,7 @@
 (ns dev.codecarver.domain.entities.article
-  (:require [validateur.validation :refer :all])
+  (:require [validateur.validation :refer [validation-set
+                                           presence-of
+                                           length-of]])
   (:require [dev.codecarver.domain.util.util :as util]))
 
 (def ^:private validator (validation-set
