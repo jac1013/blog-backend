@@ -5,12 +5,14 @@
 (def articles (atom {}))
 (def counter (atom 0))
 
-(defn save [article]
+(defn save
+  [article]
   (let [id (str (swap! counter inc))]
     (swap! articles assoc id (assoc article :id id))
     (get @articles id)))
 
-(defn update [article]
+(defn update
+  [article]
   (let [id (get article :id) db_article (get @articles id)]
     (swap! articles assoc id (merge (select-keys db_article (keys article)) article))
     (get @articles id)))
