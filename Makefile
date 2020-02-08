@@ -38,6 +38,9 @@ complete-analysis:
 run-db:
 		docker-compose up
 
+format:
+		lein cljfmt fix
+
 
 
 
