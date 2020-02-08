@@ -45,7 +45,7 @@ format:
 		lein cljfmt fix
 
 integration-test:
-		export APP_ENV=test && docker-compose -f docker-compose-test.yml up -d && sleep 5 && lein test :integration && docker-compose -f docker-compose-test.yml stop test
+		export APP_ENV=test && docker-compose -f docker-compose-test.yml up -d && sleep 5 && lein test :integration && docker-compose -f docker-compose-test.yml down -v --remove-orphans
 
 
 
