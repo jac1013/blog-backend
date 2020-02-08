@@ -25,4 +25,4 @@
     [this id]
     (.update this
              (assoc (.get this id) :is_publish true :url "this is a generated url")))
-  (list [_] ()))
+  (list [_] (repo/find-all repository)))

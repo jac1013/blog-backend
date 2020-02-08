@@ -21,7 +21,8 @@
   ArticleRepository
   (save! [_ article] (save article))
   (update! [_ article] (update article))
-  (find [_ id] (get @articles id)))
+  (find [_ id] (get @articles id))
+  (find-all [_] (map identity @articles)))
 
 (defn articleRepo []
   (ArticleRepo.))

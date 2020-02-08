@@ -29,7 +29,8 @@
     [_ id]
     (jdbc/get-by-id
      db
-     :article id)))
+     :article id))
+  (find-all [_] (jdbc/query db ["SELECT * FROM article"] {:clojure.java.jdbc.spec/as-arrays? true})))
 
 (defn articleRepoPostgreSQL []
   (ArticleRepoPostgreSQL.))

@@ -1,13 +1,14 @@
 (ns dev.codecarver.core
   (:gen-class)
-  (:refer-clojure :exclude [update get])
+  (:refer-clojure :exclude [update get list])
   (:require [dev.codecarver.repository.in-memory.article :refer [articleRepo]])
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
   (:require [dev.codecarver.domain.interactors.article_interactor :refer [create
-                                                               update
-                                                               get
-                                                               is_publish
-                                                               publish]]))
+                                                                          update
+                                                                          get
+                                                                          is_publish
+                                                                          publish
+                                                                          list]]))
 
 (defn -main
   "Main entry point working as an integration tests"
@@ -18,4 +19,5 @@
     (println (get interactor 1))
     (println (is_publish interactor 1))
     (println (publish interactor 1))
-    (println (is_publish interactor 1))))
+    (println (is_publish interactor 1))
+    (println (count (list interactor)))))
