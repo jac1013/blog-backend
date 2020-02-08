@@ -10,7 +10,6 @@
                                                                publish
                                                                un_publish]]))
 
-
 (defn -main
   "Main entry point working as an integration tests"
   [& args]

@@ -25,6 +25,7 @@
   :plugins [[lein-kibit "0.1.8"]
             [lein-ancient "0.6.15"]
             [lein-cloverage "1.1.2"]
-            [lein-nvd "1.3.0"]])
+            [lein-nvd "1.3.0"]
+            [lein-cljfmt "0.6.6"]])
 
 

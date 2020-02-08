@@ -5,7 +5,6 @@
   (:require [dev.codecarver.domain.repository.article :as repo])
   (:require [dev.codecarver.domain.interactors.article :refer [ArticleInteractor]]))
 
-
 (deftype ArticleInteractorImpl [repository]
   ArticleInteractor
   (create

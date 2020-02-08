@@ -14,23 +14,22 @@
   (save!
     [_ article]
     (jdbc/insert!
-      db
-      :article article))
+     db
+     :article article))
   (update!
     [this article]
     (jdbc/with-db-transaction
       [tx db]
       (let [id (:id article)]
         (jdbc/update!
-          tx
-          :article article ["id = ?" id])
-        (.find this id))
-      ))
+         tx
+         :article article ["id = ?" id])
+        (.find this id))))
   (find
     [_ id]
     (jdbc/get-by-id
-      db
-      :article id)))
+     db
+     :article id)))
 
 (defn articleRepoPostgreSQL []
   (ArticleRepoPostgreSQL.))

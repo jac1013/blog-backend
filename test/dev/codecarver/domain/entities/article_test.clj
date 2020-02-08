@@ -13,5 +13,4 @@
   (testing "Should return a map with error if body is empty"
     (is (= true (contains? (validate {:action #() :to_validate {:title (r/string "a" 25)}}) :validation_error))))
   (testing "Should return a map with error if title is empty"
-    (is (= true (contains? (validate {:action #() :to_validate {:body (r/string "qwer" 100)}}) :validation_error))))
-  )
+    (is (= true (contains? (validate {:action #() :to_validate {:body (r/string "qwer" 100)}}) :validation_error)))))

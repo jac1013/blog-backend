@@ -23,6 +23,5 @@
   (update! [_ article] (update article))
   (find [_ id] (get @articles id)))
 
-
 (defn articleRepo []
   (ArticleRepo.))

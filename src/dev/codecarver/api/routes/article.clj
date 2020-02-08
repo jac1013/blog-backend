@@ -7,9 +7,9 @@
   (:require [dev.codecarver.api.controllers.article :refer [create_article]]))
 
 (defroutes article_routes
-           (->
-             (GET "/article" [] create_article)
-             (wrap-defaults api-defaults)
-             wrap-params
-             (wrap-routes wrap-response)
-             wrap-json-response))
+  (->
+   (GET "/article" [] create_article)
+   (wrap-defaults api-defaults)
+   wrap-params
+   (wrap-routes wrap-response)
+   wrap-json-response))

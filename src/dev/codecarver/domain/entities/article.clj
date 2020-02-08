@@ -7,9 +7,9 @@
 (defrecord Article [id title body created_at updated_at url repository_url is_publish article_id])
 
 (def ^:private validator (validation-set
-                           (presence-of :title)
-                           (presence-of :body)
-                           (length-of :title :within (range 10 51))))
+                          (presence-of :title)
+                          (presence-of :body)
+                          (length-of :title :within (range 10 51))))
 
 (defn validate [options]
   (util/validate (merge options {:validator validator})))
