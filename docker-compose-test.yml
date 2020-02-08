@@ -1,0 +1,18 @@
+version: '3'
+services:
+  test:
+    build: .
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=test
+    volumes:
+      - ./postgresql_test:/var/lib/postgresql
+      # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
+      - ./postgresql_data_test:/var/lib/postgresql/data
+    ports:
+      - "54321:5432"
+
+volumes:
+  postgresql:
+  postgresql_data:

@@ -41,6 +41,11 @@ run-db:
 format:
 		lein cljfmt fix
 
+run-integration-test:
+		APP_ENV=test; docker-compose -f docker-compose-test.yml up -d && sleep 5 && lein test && docker-compose -f docker-compose-test.yml stop test
+
+
+
 
 
 
