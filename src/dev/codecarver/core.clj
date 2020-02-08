@@ -1,7 +1,6 @@
 (ns dev.codecarver.core
   (:gen-class)
   (:refer-clojure :exclude [update get list])
-  (:require [dev.codecarver.repository.in-memory.article :refer [articleRepo]])
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
   (:require [dev.codecarver.domain.interactors.article_interactor :refer [create
                                                                           update
