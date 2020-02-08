@@ -1,6 +1,6 @@
 (ns dev.codecarver.api.controllers.article
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
-  (:require [dev.codecarver.domain.interactors.article :refer [create]]))
+  (:require [dev.codecarver.domain.interactors.article_interactor :refer [create]]))
 
 (defn create_article [request]
   {:status 200

@@ -1,9 +1,9 @@
-(ns dev.codecarver.domain.interactors.implementations.article
+(ns dev.codecarver.domain.interactors.implementations.article_interactor
   (:refer-clojure :exclude [update find get])
   (:require [clojure.core :as core])
   (:require [dev.codecarver.domain.entities.article :refer [validate]])
   (:require [dev.codecarver.domain.repository.article :as repo])
-  (:require [dev.codecarver.domain.interactors.article :refer [ArticleInteractor]]))
+  (:require [dev.codecarver.domain.interactors.article_interactor :refer [ArticleInteractor]]))
 
 (deftype ArticleInteractorImpl [repository]
   ArticleInteractor

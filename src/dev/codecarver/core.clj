@@ -3,7 +3,7 @@
   (:refer-clojure :exclude [update get])
   (:require [dev.codecarver.repository.in-memory.article :refer [articleRepo]])
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
-  (:require [dev.codecarver.domain.interactors.article :refer [create
+  (:require [dev.codecarver.domain.interactors.article_interactor :refer [create
                                                                update
                                                                get
                                                                is_publish

@@ -1,4 +1,4 @@
-(ns dev.codecarver.domain.interactors.article
+(ns dev.codecarver.domain.interactors.article_interactor
   (:refer-clojure :exclude [update find get]))
 
 (defprotocol ArticleInteractor
