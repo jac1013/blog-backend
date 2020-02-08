@@ -12,7 +12,8 @@
                  [com.novemberain/validateur "2.6.0"]
                  [org.clojure/java.jdbc "0.7.11"]
                  [org.postgresql/postgresql "42.2.9"]
-                 [lynxeyes/dotenv "1.0.2"]]
+                 [lynxeyes/dotenv "1.0.2"]
+                 [org.clojure/data.generators "0.1.2"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
