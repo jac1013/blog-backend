@@ -9,7 +9,7 @@
 (def ^:private validator (validation-set
                            (presence-of :title)
                            (presence-of :body)
-                           (length-of :title :within (range 10 50))))
+                           (length-of :title :within (range 10 51))))
 
 (defn validate [options]
   (util/validate (merge options {:validator validator})))
