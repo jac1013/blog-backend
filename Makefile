@@ -1,4 +1,4 @@
-all: deps lint test
+all: deps lint test .env
 
 .PHONY: all test clean build
 
@@ -10,6 +10,9 @@ lint:
 
 test:
 		lein test
+
+.env:
+		cp .env-template .env && cp .env.test-template ./.env.test
 
 clean:
 		rm -fr ./target/*
@@ -41,8 +44,8 @@ run-db:
 format:
 		lein cljfmt fix
 
-run-integration-test:
-		APP_ENV=test; docker-compose -f docker-compose-test.yml up -d && sleep 5 && lein test && docker-compose -f docker-compose-test.yml stop test
+integration-test:
+		export APP_ENV=test && docker-compose -f docker-compose-test.yml up -d && sleep 5 && lein test :integration && docker-compose -f docker-compose-test.yml stop test
 
 
 
