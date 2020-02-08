@@ -7,8 +7,7 @@
                                                                update
                                                                get
                                                                is_publish
-                                                               publish
-                                                               un_publish]]))
+                                                               publish]]))
 
 (defn -main
   "Main entry point working as an integration tests"
@@ -19,8 +18,4 @@
     (println (get interactor 1))
     (println (is_publish interactor 1))
     (println (publish interactor 1))
-    (println (is_publish interactor 1))
-    (println (un_publish interactor 1))))
-
-
-
+    (println (is_publish interactor 1))))

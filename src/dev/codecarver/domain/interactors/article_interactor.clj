@@ -1,5 +1,5 @@
 (ns dev.codecarver.domain.interactors.article_interactor
-  (:refer-clojure :exclude [update find get]))
+  (:refer-clojure :exclude [update find get list]))
 
 (defprotocol ArticleInteractor
   "Use cases around Articles that the system accomplish"
@@ -8,6 +8,4 @@
   (get [_ id] "Gets an article by ID")
   (is_publish [_ id] "Whether or not an article is publish")
   (publish [_ id] "Publish an article")
-  (un_publish [_ id] "Put down an article"))
-
-
+  (list [_] "List all articles"))

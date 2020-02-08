@@ -1,5 +1,5 @@
 (ns dev.codecarver.domain.interactors.implementations.article_interactor
-  (:refer-clojure :exclude [update find get])
+  (:refer-clojure :exclude [update find get list])
   (:require [clojure.core :as core])
   (:require [dev.codecarver.domain.entities.article :refer [validate]])
   (:require [dev.codecarver.domain.repository.article :as repo])
@@ -25,7 +25,4 @@
     [this id]
     (.update this
              (assoc (.get this id) :is_publish true :url "this is a generated url")))
-  (un_publish
-    [this id]
-    (.update this
-             (dissoc (assoc (.get this id) :is_publish false) :url))))
+  (list [_] ()))
