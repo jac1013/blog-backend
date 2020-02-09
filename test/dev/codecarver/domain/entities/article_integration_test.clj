@@ -9,13 +9,19 @@
 (defn random-string [low high]
   (r/string "a" (r/uniform low high)))
 
+(def article
+  (create (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish true}))
+
 (deftest ^:integration article-integration-test
   (testing "Should be able to create an article"
-    (is (= false (c/get (create (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish false}) :is_publish))))
-  ;(testing "Should be able to update an article"
-  ;  (is true (c/get (update (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish true}) :is_publish)))
+    (is (= true (c/get article :is_publish))))
+  (testing "Should be able to update an article"
+    (is (= false (c/get (update (articleInteractor) (merge article {:is_publish false})) :is_publish))))
   ;(testing "Should be able to get an article by ID"
   ;  (is true (c/get (get (articleInteractor) 1) :is_publish)))
   ;(testing "Should be able to know if an article is publish"
   ;  (is true (c/get (is_publish (articleInteractor) 1) :is_publish)))
   )
+
+(println (create (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish true}))
+(println (update (articleInteractor) {:id 1 :title (random-string 11 49) :body (random-string 50 500) :is_publish false}))

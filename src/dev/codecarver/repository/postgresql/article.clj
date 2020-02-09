@@ -19,13 +19,11 @@
      :article article)))
   (update!
     [this article]
-    (jdbc/with-db-transaction
-      [tx db]
       (let [id (:id article)]
         (jdbc/update!
-         tx
-         :article article ["id = ?" id])
-        (.find this id))))
+         db
+         :article article ["id = ?" id]))
+    (.find this (:id article)))
   (find
     [_ id]
     (jdbc/get-by-id
