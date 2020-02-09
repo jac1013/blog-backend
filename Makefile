@@ -33,7 +33,7 @@ check-dependencies:
 		lein ancient
 
 coverage:
-		lein cloverage --lcov
+		CLOVERAGE_VERSION=1.0.11-20180518.155428-32 lein with-profile +test,+cloverage cloverage
 
 check-vulnerabilities:
 		lein nvd check
