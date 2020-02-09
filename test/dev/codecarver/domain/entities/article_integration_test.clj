@@ -17,8 +17,8 @@
     (is (= true (c/get article :is_publish))))
   (testing "Should be able to update an article"
     (is (= false (c/get (update (articleInteractor) (merge article {:is_publish false})) :is_publish))))
-  ;(testing "Should be able to get an article by ID"
-  ;  (is true (c/get (get (articleInteractor) 1) :is_publish)))
+  (testing "Should be able to get an article by ID"
+    (is (= false (c/get (get (articleInteractor) (:id article)) :is_publish))))
   ;(testing "Should be able to know if an article is publish"
   ;  (is true (c/get (is_publish (articleInteractor) 1) :is_publish)))
   )
