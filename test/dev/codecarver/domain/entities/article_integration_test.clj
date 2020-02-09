@@ -6,6 +6,11 @@
   (:require [clojure.data.generators :as r])
   (:require [clojure.test :refer :all]))
 
+(defn random-string [low high]
+  (r/string "a" (r/uniform low high)))
+
 (deftest ^:integration article-integration-test
   (testing "Should be able to create an article"
-    (is true (= c/get (create (articleInteractor) {:title (r/string "a" (r/uniform 11 49)) :body (r/string "a" (r/uniform 50 500)) :is_publish false}) :id 1))))
+    (is 1 (c/get (create (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish false}) :id)))
+  (testing "Should be able to update an article"
+    (is true (c/get (update (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish true}) :is_publish))))
