@@ -25,4 +25,4 @@
     (is (= true (c/get (publish (articleInteractor) 1) :is_publish))))
   (testing "Should be able to list articles"
     (is (= 1 (count (filter (fn [value]
-                       (= (:id value) 2)) (list (articleInteractor))))))))
+                              (= (:id value) 2)) (list (articleInteractor))))))))

@@ -15,14 +15,14 @@
   (save!
     [_ article]
     (first (jdbc/insert!
-     db
-     :article article)))
+            db
+            :article article)))
   (update!
     [this article]
-      (let [id (:id article)]
-        (jdbc/update!
-         db
-         :article article ["id = ?" id]))
+    (let [id (:id article)]
+      (jdbc/update!
+       db
+       :article article ["id = ?" id]))
     (.find this (:id article)))
   (find
     [_ id]
