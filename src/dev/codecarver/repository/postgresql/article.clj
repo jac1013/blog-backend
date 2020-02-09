@@ -14,9 +14,9 @@
   ArticleRepository
   (save!
     [_ article]
-    (jdbc/insert!
+    (first (jdbc/insert!
      db
-     :article article))
+     :article article)))
   (update!
     [this article]
     (jdbc/with-db-transaction
