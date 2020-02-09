@@ -15,4 +15,6 @@
   (testing "Should be able to update an article"
     (is true (c/get (update (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish true}) :is_publish)))
   (testing "Should be able to get an article by ID"
-    (is true (c/get (get (articleInteractor) 1) :is_publish))))
+    (is true (c/get (get (articleInteractor) 1) :is_publish)))
+  (testing "Should be able to know if an article is publish"
+    (is true (c/get (is_publish (articleInteractor) 1) :is_publish))))
