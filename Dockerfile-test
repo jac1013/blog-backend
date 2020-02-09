@@ -1,0 +1,4 @@
+FROM postgres:alpine
+
+COPY ./src/dev/codecarver/repository/postgresql/schema.sql /docker-entrypoint-initdb.d/1_schema.sql
+COPY ./test/seeds.sql /docker-entrypoint-initdb.d/2_seeds.sql
