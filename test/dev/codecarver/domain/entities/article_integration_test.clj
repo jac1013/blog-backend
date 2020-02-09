@@ -21,4 +21,6 @@
     (is (= false (c/get (get (articleInteractor) (:id article)) :is_publish))))
   (testing "Should be able to know if an article is publish"
     (is (= false (is_publish (articleInteractor) (:id article)))))
+  (testing "Should be able to know if an article is publish"
+    (is (= true (c/get (publish (articleInteractor) (:id article)) :is_publish))))
   )
