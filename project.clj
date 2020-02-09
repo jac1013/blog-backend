@@ -11,7 +11,7 @@
                  [ring/ring-defaults "0.3.2"]
                  [com.novemberain/validateur "2.6.0"]
                  [org.clojure/java.jdbc "0.7.11"]
-                 [org.postgresql/postgresql "42.2.9"]
+                 [org.postgresql/postgresql "42.2.10"]
                  [lynxeyes/dotenv "1.0.2"]
                  [org.clojure/data.generators "0.1.2"]]
   :main dev.codecarver.core
