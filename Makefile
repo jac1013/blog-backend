@@ -48,7 +48,7 @@ format:
 		lein cljfmt fix
 
 integration-test:
-		lein test :integration
+		export APP_ENV=test && sudo docker-compose -f docker-compose-test.yml up -d --build && sleep 10 && lein test :integration && docker-compose -f docker-compose-test.yml down -v && sudo rm -rf postgresql_data_test && sudo rm -rf postgresql_test
 
 
 
