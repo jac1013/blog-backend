@@ -19,9 +19,6 @@
     (is (= false (c/get (update (articleInteractor) (merge article {:is_publish false})) :is_publish))))
   (testing "Should be able to get an article by ID"
     (is (= false (c/get (get (articleInteractor) (:id article)) :is_publish))))
-  ;(testing "Should be able to know if an article is publish"
-  ;  (is true (c/get (is_publish (articleInteractor) 1) :is_publish)))
+  (testing "Should be able to know if an article is publish"
+    (is (= false (is_publish (articleInteractor) (:id article)))))
   )
-
-(println (create (articleInteractor) {:title (random-string 11 49) :body (random-string 50 500) :is_publish true}))
-(println (update (articleInteractor) {:id 1 :title (random-string 11 49) :body (random-string 50 500) :is_publish false}))
