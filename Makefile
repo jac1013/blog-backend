@@ -42,7 +42,7 @@ complete-analysis:
 		make lint coverage check-dependencies check-vulnerabilities
 
 run-db:
-		docker-compose up
+		sudo docker-compose up
 
 format:
 		lein cljfmt fix
