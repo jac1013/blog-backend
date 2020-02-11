@@ -14,7 +14,8 @@
                  [org.postgresql/postgresql "42.2.10"]
                  [lynxeyes/dotenv "1.0.2"]
                  [org.clojure/data.generators "0.1.2"]
-                 [com.taoensso/timbre "4.10.0"]]
+                 [com.taoensso/timbre "4.10.0"]
+                 [org.clojure/core.incubator "0.1.4"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
