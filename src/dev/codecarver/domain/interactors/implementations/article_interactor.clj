@@ -12,8 +12,7 @@
     (try
       (repo/save! repo article)
       (catch Exception e
-        ((error
-          (<< "There was a problem creating an article \n ~{e}"))
+        ((error (<< "There was a problem creating an article \n ~{e}"))
          (throw e))))))
 
 (defn ^:private update! [repo article]
