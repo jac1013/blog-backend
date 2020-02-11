@@ -13,7 +13,8 @@
                  [org.clojure/java.jdbc "0.7.11"]
                  [org.postgresql/postgresql "42.2.10"]
                  [lynxeyes/dotenv "1.0.2"]
-                 [org.clojure/data.generators "0.1.2"]]
+                 [org.clojure/data.generators "0.1.2"]
+                 [com.taoensso/timbre "4.10.0"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
