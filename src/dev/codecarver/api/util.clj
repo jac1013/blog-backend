@@ -16,3 +16,7 @@
         (assoc response :body (augment_response body)))
       (catch Exception e
         {:status 500 :body (augment_response_error)}))))
+
+(defn json-response []
+  {:status 200
+   :headers {"Content-Type" "application/json"}})
