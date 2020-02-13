@@ -1,7 +1,8 @@
 (ns dev.codecarver.repository.postgresql.article
   (:require [dev.codecarver.util.env :refer [get-env]])
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]
-            [clojure.java.jdbc :as jdbc]))
+            [clojure.java.jdbc :as jdbc])
+  (:require [clj-time.core] [clj-time.coerce]))
 
 (def ^:private db
   {:dbtype   "postgres"
@@ -22,7 +23,9 @@
     (let [id (:id article)]
       (jdbc/update!
        db
-       :article article ["id = ?" id]))
+       :article (merge article
+                       {:updated_at (clj-time.coerce/to-sql-time (clj-time.core/now))})
+       ["id = ?" id]))
     (.find this (:id article)))
   (find
     [_ id]
