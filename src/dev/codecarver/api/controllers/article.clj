@@ -29,7 +29,7 @@
 (defn get_article [request]
   (try
     (let [article (get (articleInteractor) (Integer/parseInt (get-in request [:params :id]))) response (json-response)]
-      (assoc response :body article))
+      (assoc response :body (if (empty? article) {} article)))
     (catch Exception e
       (warn (<< "get_article request failed \n ~{e}"))
       (assoc (json-response) :status 500))))
