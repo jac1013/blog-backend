@@ -15,7 +15,8 @@
                  [lynxeyes/dotenv "1.0.2"]
                  [org.clojure/data.generators "0.1.2"]
                  [com.taoensso/timbre "4.10.0"]
-                 [org.clojure/core.incubator "0.1.4"]]
+                 [org.clojure/core.incubator "0.1.4"]
+                 [clj-time "0.14.0"]]
   :main dev.codecarver.core
   :aot [dev.codecarver.core]
   :target-path "target/%s"
