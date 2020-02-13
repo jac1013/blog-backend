@@ -19,13 +19,13 @@
   (->
    (PUT "/article/:id" [] update_article)
    (wrap-defaults api-defaults)
-   (wrap-json-body {:keywords? true})
+   (wrap-routes wrap-json-body {:keywords? true})
    (wrap-routes wrap-response)
    wrap-json-response)
   (->
    (POST "/article" [] create_article)
    (wrap-defaults api-defaults)
-   (wrap-json-body {:keywords? true})
+   (wrap-routes wrap-json-body {:keywords? true})
    (wrap-routes wrap-response)
    wrap-json-response)
   (->
