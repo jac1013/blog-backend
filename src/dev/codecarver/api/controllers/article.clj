@@ -12,12 +12,6 @@
                                                                           list]]))
 
 (defn create_article [request]
-  {:status 200
-   :headers {"Content-Type" "application/json"}
-   :body (create (articleInteractor) {:title "I have more than ten characters"
-                                      :body "I'm just a body that's not empty"})})
-
-(defn create_article [request]
   (try
     (let [article (create (articleInteractor) (c/get request :body)) response (json-response)]
       (if (contains? article :validation_error)
