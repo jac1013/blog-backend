@@ -4,7 +4,10 @@
   (:require [ring.middleware.params :refer [wrap-params]])
   (:require [ring.middleware.json :refer [wrap-json-response wrap-json-body]])
   (:require [dev.codecarver.api.util :refer [wrap-response]])
-  (:require [dev.codecarver.api.controllers.article :refer [get_article create_article, update_article]]))
+  (:require [dev.codecarver.api.controllers.article :refer [get_article
+                                                            create_article
+                                                            update_article
+                                                            list_articles]]))
 
 (defroutes article_routes
   (->
@@ -23,5 +26,11 @@
    (POST "/article" [] create_article)
    (wrap-defaults api-defaults)
    (wrap-json-body {:keywords? true})
+   (wrap-routes wrap-response)
+   wrap-json-response)
+  (->
+   (GET "/articles" [] list_articles)
+   (wrap-defaults api-defaults)
+   wrap-params
    (wrap-routes wrap-response)
    wrap-json-response))

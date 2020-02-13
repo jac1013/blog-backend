@@ -8,7 +8,8 @@
   (:require [clojure.walk :refer [keywordize-keys]])
   (:require [dev.codecarver.domain.interactors.article_interactor :refer [create
                                                                           get
-                                                                          update]]))
+                                                                          update
+                                                                          list]]))
 
 (defn create_article [request]
   {:status 200
@@ -47,5 +48,13 @@
         (assoc response :status 400 :body article)
         (assoc response :body article)))
     (catch Exception e
-      (warn (<< "create_article request failed \n ~{e}"))
+      (warn (<< "update_article request failed \n ~{e}"))
+      (assoc (json-response) :status 500))))
+
+(defn list_articles [_]
+  (try
+    (let [articles (list (articleInteractor)) response (json-response)]
+      (assoc response :body (if (empty? articles) '[] articles)))
+    (catch Exception e
+      (warn (<< "list_articles request failed \n ~{e}"))
       (assoc (json-response) :status 500))))
