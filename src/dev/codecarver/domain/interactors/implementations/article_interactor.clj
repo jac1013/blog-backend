@@ -5,7 +5,7 @@
   (:require [taoensso.timbre :refer [error]])
   (:require [clojure.core.strint :refer [<<]]))
 
-(defn ^:private save! [repo article]
+(defn- save! [repo article]
   (fn []
     (try
       (repo/save! repo article)
@@ -13,7 +13,7 @@
         ((error (<< "There was a problem creating an article \n ~{e}"))
          (throw e))))))
 
-(defn ^:private update! [repo article]
+(defn- update! [repo article]
   (fn []
     (try
       (repo/update! repo article)
@@ -21,14 +21,14 @@
         ((error (<< "There was a problem updating an article ~{article} \n ~{e}"))
          (throw e))))))
 
-(defn ^:private find_ [repo id]
+(defn- find_ [repo id]
   (try
     (repo/find repo id)
     (catch Exception e
       ((error (<< "There was a problem finding an article \n ~{id} ~{e}"))
        (throw e)))))
 
-(defn ^:private find-all [repo]
+(defn- find-all [repo]
   (try
     (repo/find-all repo)
     (catch Exception e

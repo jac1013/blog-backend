@@ -1,12 +1,12 @@
 (ns dev.codecarver.api.util)
 
-(defn ^:private augment_response [body]
+(defn- augment_response [body]
   (let [validation (get body :validation_error)]
     (if (nil? validation)
       {:status "Ok" :code 200 :result body}
       {:status "Bad Request" :code 400 :messages validation})))
 
-(defn ^:private augment_response_error []
+(defn- augment_response_error []
   {:status "Internal Server Error" :code 500})
 
 (defn wrap-response [handler]

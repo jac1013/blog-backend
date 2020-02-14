@@ -18,7 +18,7 @@
       (warn (<< "create_article request failed \n ~{e}"))
       (assoc (json-response) :status 500))))
 
-(defn ^:private get-id-from-params [request]
+(defn- get-id-from-params [request]
   (Integer/parseInt (get-in request [:params :id])))
 
 (defn get_article [request]
@@ -29,7 +29,7 @@
       (warn (<< "get_article request failed \n ~{e}"))
       (assoc (json-response) :status 500))))
 
-(defn ^:private get-article-for-update [request]
+(defn- get-article-for-update [request]
   (merge (get request :body) {:id (get-id-from-params request)}))
 
 (defn update_article [request]
