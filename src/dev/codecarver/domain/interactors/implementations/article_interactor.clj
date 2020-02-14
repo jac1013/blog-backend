@@ -1,6 +1,4 @@
 (ns dev.codecarver.domain.interactors.implementations.article_interactor
-  (:refer-clojure :exclude [update find get list])
-  (:require [clojure.core :as core])
   (:require [dev.codecarver.domain.entities.article :refer [validate]])
   (:require [dev.codecarver.domain.repository.article :as repo])
   (:require [dev.codecarver.domain.interactors.article_interactor :refer [ArticleInteractor]])
@@ -23,7 +21,7 @@
         ((error (<< "There was a problem updating an article ~{article} \n ~{e}"))
          (throw e))))))
 
-(defn ^:private find [repo id]
+(defn ^:private find_ [repo id]
   (try
     (repo/find repo id)
     (catch Exception e
@@ -43,18 +41,18 @@
     [_ article]
     (validate {:action      (save! repository article)
                :to_validate article}))
-  (update
+  (update_
     [_ article]
     (validate {:action      (update! repository article)
                :to_validate article}))
-  (get
+  (get_
     [_ id]
-    (find repository id))
+    (find_ repository id))
   (is_publish
     [this id]
-    (boolean (core/get (.get this id) :is_publish)))
+    (boolean (get (.get_ this id) :is_publish)))
   (publish
     [this id]
-    (.update this
-             (assoc (.get this id) :is_publish true :url "this is a generated url")))
-  (list [_] (find-all repository)))
+    (.update_ this
+             (assoc (.get_ this id) :is_publish true :url "this is a generated url")))
+  (list_ [_] (find-all repository)))
