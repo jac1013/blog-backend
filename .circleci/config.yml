@@ -72,6 +72,11 @@ jobs:
               mkdir jar
               cp ./target/uberjar/dev.codecarver-0.1.0-SNAPSHOT-standalone.jar jar/
 
+      - run:
+          name: Deploy to AWS
+          command: |
+            ./deployment/publish_to_aws.sh
+
       - store_artifacts:
           path: ./coverage/lcov.info
           prefix: tests
