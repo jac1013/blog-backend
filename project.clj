@@ -17,10 +17,10 @@
                  [com.taoensso/timbre "4.10.0"]
                  [org.clojure/core.incubator "0.1.4"]
                  [clj-time "0.15.2"]]
-  :main dev.codecarver.core
-  :aot [dev.codecarver.core]
+  :main dev.codecarver.api.core
+  :aot [dev.codecarver.api.core]
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}
+  :profiles {:uberjar {:aot :all :main dev.codecarver.api.core}
              :api {:main dev.codecarver.api.main}
              :core-test {:main dev.codecarver.core}
              :cloverage  {:plugins [[lein-cloverage "1.0.11-20180518.155437-26"]]
