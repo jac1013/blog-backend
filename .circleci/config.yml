@@ -23,6 +23,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_keys:  # add key from CircleCI account based on fingerprint
+          fingerprints:
+            - "36:b1:07:d4:90:40:63:18:dc:e8:a3:60:01:3a:74:f1"
 
       # Download and cache dependencies
       - restore_cache:
