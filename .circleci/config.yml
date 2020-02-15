@@ -67,10 +67,10 @@ jobs:
           command: make build
 
       - run:
-          name: Move JAR to artifacts
+          name: Copy JAR to artifacts
           command: |
               mkdir jar
-              mv ./target/uberjar/dev.codecarver-0.1.0-SNAPSHOT-standalone.jar jar/
+              cp ./target/uberjar/dev.codecarver-0.1.0-SNAPSHOT-standalone.jar jar/
 
       - store_artifacts:
           path: ./coverage/lcov.info
