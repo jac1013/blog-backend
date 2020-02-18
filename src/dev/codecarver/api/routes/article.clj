@@ -13,9 +13,4 @@
   (wrap-params
    (routes
     (GET "/article/:id" [] get_article)
-    (GET "/articles" [] list_articles)))
-  (wrap-json-body
-   (routes
-    (PUT "/article/:id" [] update_article)
-    (POST "/article" [] create_article))
-   {:keywords? true}))
+    (GET "/articles" [] list_articles))))
