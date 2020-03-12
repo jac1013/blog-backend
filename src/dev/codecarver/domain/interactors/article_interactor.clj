@@ -7,4 +7,5 @@
   (get_ [_ id] "Gets an article by ID")
   (is_publish [_ id] "Whether or not an article is publish")
   (publish [_ id] "Publish an article")
-  (list_ [_] "List all articles"))
+  (list_ [_] "List all articles")
+  (list_all_published [_] "List all published articles"))

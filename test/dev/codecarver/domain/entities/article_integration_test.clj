@@ -25,4 +25,7 @@
     (is (= true (c/get (publish (articleInteractor) 1) :is_publish))))
   (testing "Should be able to list articles"
     (is (= 1 (count (filter (fn [value]
-                              (= (:id value) 1)) (list_ (articleInteractor))))))))
+                              (= (:id value) 1)) (list_ (articleInteractor)))))))
+  (testing "Should be able to list published articles"
+    (is (= 1 (count (filter (fn [value]
+                              (= (:id value) 1)) (list_all_published (articleInteractor))))))))
