@@ -44,7 +44,7 @@
 
 (defn list_articles [_]
   (try
-    (let [articles (list_all_published(articleInteractor)) response (json-response)]
+    (let [articles (list_all_published (articleInteractor)) response (json-response)]
       (assoc response :body (if (empty? articles) '[] articles)))
     (catch Exception e
       (warn (<< "list_articles request failed \n ~{e}"))
