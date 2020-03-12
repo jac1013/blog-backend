@@ -7,7 +7,7 @@
   (:require [dev.codecarver.domain.interactors.article_interactor :refer [create
                                                                           get_
                                                                           update_
-                                                                          list_]]))
+                                                                          list_all_published]]))
 (defn create_article [request]
   (try
     (let [article (create (articleInteractor) (get request :body)) response (json-response)]
@@ -44,7 +44,7 @@
 
 (defn list_articles [_]
   (try
-    (let [articles (list_ (articleInteractor)) response (json-response)]
+    (let [articles (list_all_published(articleInteractor)) response (json-response)]
       (assoc response :body (if (empty? articles) '[] articles)))
     (catch Exception e
       (warn (<< "list_articles request failed \n ~{e}"))
