@@ -55,5 +55,7 @@
     [this id]
     (.update_ this
               (assoc (.get_ this id) :is_publish true :url "this is a generated url")))
+  (exist? [_ id]
+    (not-empty (find_ repository, id)))
   (list_ [_] (find-all repository))
   (list_all_published [_] (filter (fn [a] (a :is_publish)) (find-all repository))))

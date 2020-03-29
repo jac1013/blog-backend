@@ -1,9 +1,13 @@
 (ns dev.codecarver.domain.interactors.implementations.like-interactor
   (:require [dev.codecarver.domain.interactors.like-interactor :refer [LikeInteractor]])
   (:require [dev.codecarver.domain.repository.like :as repo])
+  (:require [dev.codecarver.domain.interactors.article_interactor :refer [exist?]])
   (:require [taoensso.timbre :refer [error]])
   (:require [clojure.core.strint :refer [<<]])
   (:require [dev.codecarver.domain.util.util :as util]))
+
+(defn- article-exist? [articleInteractor, article_id]
+  (exist? articleInteractor article_id))
 
 (defn- save! [repository like]
   (try
@@ -25,9 +29,6 @@
     (catch Exception e
       ((error (<< "There was a problem finding likes for an article ~{article_id} \n ~{e}"))
        (throw e)))))
-
-(defn- article-exist? [articleRepo, article_id]
-  (empty? (find articleRepo article_id)))
 
 (deftype ^:private Interactor [repository articleRepo]
   LikeInteractor
