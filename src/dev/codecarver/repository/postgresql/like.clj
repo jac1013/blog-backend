@@ -5,11 +5,11 @@
 
 (deftype ^:private LikeRepo []
   LikeRepository
-  (create! [_ article_id ip_address]
+  (save! [_ article_id ip_address]
     first (jdbc/insert!
             db
             :plus_one {:article_id article_id :ip_address ip_address}))
-  (remove! [_ id]
+  (delete! [_ id]
     (jdbc/delete! db :plus_one ["id = ?" id])))
 
 
