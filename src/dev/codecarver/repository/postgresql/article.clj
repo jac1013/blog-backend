@@ -1,15 +1,8 @@
 (ns dev.codecarver.repository.postgresql.article
-  (:require [dev.codecarver.util.env :refer [get-env]])
+  (:require [dev.codecarver.repository.postgresql.db-config-connection :refer [db]])
   (:require [dev.codecarver.domain.repository.article :refer [ArticleRepository]]
             [clojure.java.jdbc :as jdbc])
   (:require [clj-time.core] [clj-time.coerce]))
-
-(def ^:private db
-  {:dbtype   "postgres"
-   :dbname   (get-env :POSTGRES_DB "blog")
-   :user     (get-env :POSTGRES_USER "admin")
-   :password (get-env :POSTGRES_PASSWORD "admin")
-   :port     (get-env :POSTGRES_PORT 5432)})
 
 (deftype ArticleRepoPostgreSQL []
   ArticleRepository
