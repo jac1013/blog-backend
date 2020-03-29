@@ -5,13 +5,13 @@
 (def articles (atom {}))
 (def counter (atom 0))
 
-(defn save
+(defn- save!
   [article]
   (let [id (str (swap! counter inc))]
     (swap! articles assoc id (assoc article :id id))
     (get @articles id)))
 
-(defn update
+(defn- update!
   [article]
   (let [id (get article :id) db_article (get @articles id)]
     (swap! articles assoc id (merge (select-keys db_article (keys article)) article))
@@ -19,8 +19,8 @@
 
 (deftype ArticleRepo []
   ArticleRepository
-  (save! [_ article] (save article))
-  (update! [_ article] (update article))
+  (save! [_ article] (save! article))
+  (update! [_ article] (update! article))
   (find [_ id] (get @articles id))
   (find-all [_] (map identity @articles)))
 

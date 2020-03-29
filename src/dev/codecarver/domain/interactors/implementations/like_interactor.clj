@@ -6,8 +6,8 @@
   (:require [clojure.core.strint :refer [<<]])
   (:require [dev.codecarver.domain.util.util :as util]))
 
-(defn- article-exist? [articleInteractor, article_id]
-  (exist? articleInteractor article_id))
+(defn- article-exist? [articleInteractor, article-id]
+  (exist? articleInteractor article-id))
 
 (defn- save! [repository like]
   (try
@@ -23,20 +23,20 @@
       ((error (<< "There was a problem deleting a like ~{id} \n ~{e}"))
        (throw e)))))
 
-(defn- find_by_article_id [repository article_id]
+(defn- find-by-article-id [repository article-id]
   (try
-    (repo/find_by_article_id repository article_id)
+    (repo/find-by-article-id repository article-id)
     (catch Exception e
-      ((error (<< "There was a problem finding likes for an article ~{article_id} \n ~{e}"))
+      ((error (<< "There was a problem finding likes for an article ~{article-id} \n ~{e}"))
        (throw e)))))
 
 (deftype ^:private Interactor [repository articleRepo]
   LikeInteractor
-  (like! [_ like] (let [article_id (get like :article_id)] (if (article-exist? articleRepo article_id)
+  (like! [_ like] (let [article-id (get like :article-id)] (if (article-exist? articleRepo article-id)
                     (save! repository like)
-                    (util/validation-error (<< "article id ~{article_id} doesn't exist")))))
+                    (util/validation-error (<< "article id ~{article-id} doesn't exist")))))
   (unlike! [_ id] (delete! repository id))
-  (get_for_article [_ article_id] (find_by_article_id repository article_id)))
+  (get-by-article [_ article-id] (find-by-article-id repository article-id)))
 
 (defn likeInteractor [repository articleRepo]
   (->Interactor repository articleRepo))

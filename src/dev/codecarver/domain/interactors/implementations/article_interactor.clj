@@ -35,27 +35,30 @@
       ((error (<< "There was a problem finding all articles \n ~{e}"))
        (throw e)))))
 
-(deftype ArticleInteractorImpl [repository]
+(deftype ^:private Interactor [repository]
   ArticleInteractor
-  (create
+  (create!
     [_ article]
     (validate {:action      (save! repository article)
                :to_validate article}))
-  (update_
+  (update!
     [_ article]
     (validate {:action      (update! repository article)
                :to_validate article}))
-  (get_
+  (get
     [_ id]
     (find_ repository id))
-  (is_publish
+  (publish?
     [this id]
-    (boolean (get (.get_ this id) :is_publish)))
+    (boolean (:publish? (.get this id))))
   (publish
     [this id]
-    (.update_ this
-              (assoc (.get_ this id) :is_publish true :url "this is a generated url")))
+    (.update! this
+              (assoc (.get this id) :publish? true :url "this is a generated url")))
   (exist? [_ id]
     (not-empty (find_ repository, id)))
-  (list_ [_] (find-all repository))
-  (list_all_published [_] (filter (fn [a] (a :is_publish)) (find-all repository))))
+  (get-all [_] (find-all repository))
+  (get-published [_] (filter (fn [a] (a :publish?)) (find-all repository))))
+
+(defn articleInteractor [repo]
+  (->Interactor repo))

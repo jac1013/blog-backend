@@ -1,15 +1,15 @@
 (ns dev.codecarver.domain.interactors.like-integration-test
   (:require [clojure.test :refer :all])
   (:require [dev.codecarver.factory.like :refer [likeInteractor]])
-  (:require [dev.codecarver.domain.interactors.like-interactor :refer [like! unlike! get_for_article]])
+  (:require [dev.codecarver.domain.interactors.like-interactor :refer [like! unlike! get-by-article]])
   (:require [dev.codecarver.repository.postgresql.like :refer [likeRepoPostgreSQL]])
   (:require [dev.codecarver.domain.repository.like :as repo]))
 
 (defn- mock-like []
-  {:article_id 1 :ip_address "192.168.1.100"})
+  {:article-id 1 :ip-address "192.168.1.100"})
 
 (defn- get-likes-for-article []
-  (get_for_article (likeInteractor) 1))
+  (get-by-article (likeInteractor) 1))
 
 (deftest ^:integration like-integration-test
   (testing "Should be able to create a like on an article"

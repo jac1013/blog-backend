@@ -4,7 +4,7 @@
                                            length-of]])
   (:require [dev.codecarver.domain.util.util :as util]))
 
-(defrecord Article [id title body created_at updated_at url repository_url is_publish article_id])
+(defrecord Article [id title body created updated url repository-url publish? article-id])
 
 (def ^:private validator (validation-set
                           (presence-of :title)
