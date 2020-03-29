@@ -10,28 +10,32 @@
 
 (def ^:private mapping-differences {:created "created_at" :updated "updated_at" :repository-url "repository_url" :publish? "is_publish" :article-id "article_id"})
 
+(def ^:private model->dto (util/model->dto mapping-differences))
+(def ^:private dto->model (util/dto->model mapping-differences))
+(def ^:private dtos->models (util/dtos->models mapping-differences))
+
 (deftype ^:private ArticleRepoPostgreSQL []
   ArticleRepository
   (save!
     [_ article]
-    (util/dto->model (first (jdbc/insert!
+    (dto->model (first (jdbc/insert!
              db
-             :article (util/model->dto article mapping-differences))) mapping-differences))
+             :article (model->dto article)))))
   (update!
     [this article]
     (let [id (:id article)]
       (jdbc/update!
        db
-       :article (merge (util/model->dto article mapping-differences)
+       :article (merge (model->dto article)
                        {:updated_at (clj-time.coerce/to-sql-time (clj-time.core/now))})
        ["id = ?" id]))
     (.find this (:id article)))
   (find
     [_ id]
-    (util/dto->model (jdbc/get-by-id
+    (dto->model (jdbc/get-by-id
      db
-     :article id) mapping-differences))
-  (find-all [_] (util/dtos->models (jdbc/query db ["SELECT * FROM article"] {:clojure.java.jdbc.spec/as-arrays? true}) mapping-differences)))
+     :article id)))
+  (find-all [_] (dtos->models (jdbc/query db ["SELECT * FROM article"] {:clojure.java.jdbc.spec/as-arrays? true}))))
 
 (defn articleRepoPostgreSQL []
   (ArticleRepoPostgreSQL.))
