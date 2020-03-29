@@ -24,3 +24,6 @@
   LikeInteractor
   (like! [_ like] (save! repository like))
   (unlike! [_ id] (delete! repository id)))
+
+(defn likeInteractor [repository]
+  (->Interactor repository ))

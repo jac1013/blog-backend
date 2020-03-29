@@ -1,4 +1,4 @@
-(ns dev.codecarver.domain.entities.article-integration-test
+(ns dev.codecarver.domain.interactors.article-integration-test
   (:refer-clojure :exclude [update get list])
   (:require [clojure.core :as c])
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
