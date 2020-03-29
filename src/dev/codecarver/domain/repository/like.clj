@@ -2,5 +2,5 @@
 
 (defprotocol LikeRepository
   "Represents the interaction with storage for like records"
-  (save! [article_id ip_address] "Creates a like")
-  (delete! [id] "Removes a like"))
+  (save! [_ like] "Creates a like")
+  (delete! [_ id] "Removes a like"))
