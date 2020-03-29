@@ -5,12 +5,15 @@
 
 (deftype ^:private LikeRepo []
   LikeRepository
-  (save! [_ like]
-    first (jdbc/insert!
+  (save!
+    [_ like]
+    (first (jdbc/insert!
             db
-            :plus_one like))
+            :plus_one like)))
   (delete! [_ id]
-    (jdbc/delete! db :plus_one ["id = ?" id])))
+    (jdbc/delete! db :plus_one ["id = ?" id]))
+  (find_by_article_id [_ article_id]
+    (jdbc/find-by-keys db :plus_one {:article_id article_id})))
 
 
 (defn likeRepoPostgreSQL []
