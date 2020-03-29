@@ -8,3 +8,6 @@
     (if (valid? validated)
       (action)
       {:validation_error validated})))
+
+(defn validation-error [message]
+  {:validation_error message})
