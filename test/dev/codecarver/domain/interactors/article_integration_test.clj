@@ -2,7 +2,7 @@
   (:refer-clojure :exclude [update get list])
   (:require [clojure.core :as c])
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
-  (:require [dev.codecarver.domain.interactors.article_interactor :refer :all])
+  (:require [dev.codecarver.domain.interactors.article-interactor :refer :all])
   (:require [clojure.data.generators :as r])
   (:require [clojure.test :refer :all]))
 

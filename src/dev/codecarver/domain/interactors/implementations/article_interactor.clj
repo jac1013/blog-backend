@@ -1,7 +1,7 @@
-(ns dev.codecarver.domain.interactors.implementations.article_interactor
+(ns dev.codecarver.domain.interactors.implementations.article-interactor
   (:require [dev.codecarver.domain.entities.article :refer [validate]])
   (:require [dev.codecarver.domain.repository.article :as repo])
-  (:require [dev.codecarver.domain.interactors.article_interactor :refer [ArticleInteractor]])
+  (:require [dev.codecarver.domain.interactors.article-interactor :refer [ArticleInteractor]])
   (:require [taoensso.timbre :refer [error]])
   (:require [clojure.core.strint :refer [<<]]))
 

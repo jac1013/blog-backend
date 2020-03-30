@@ -4,7 +4,7 @@
   (:require [taoensso.timbre :refer [warn]])
   (:require [clojure.core.strint :refer [<<]])
   (:require [clojure.walk :refer [keywordize-keys]])
-  (:require [dev.codecarver.domain.interactors.article_interactor :refer [create!
+  (:require [dev.codecarver.domain.interactors.article-interactor :refer [create!
                                                                           get
                                                                           update!
                                                                           get-published]]))

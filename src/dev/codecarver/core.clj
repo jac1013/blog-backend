@@ -2,7 +2,7 @@
   (:gen-class)
   (:refer-clojure :exclude [update get list])
   (:require [dev.codecarver.factory.article :refer [articleInteractor]])
-  (:require [dev.codecarver.domain.interactors.article_interactor :refer [create!
+  (:require [dev.codecarver.domain.interactors.article-interactor :refer [create!
                                                                           update!
                                                                           get
                                                                           publish?

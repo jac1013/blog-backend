@@ -1,7 +1,7 @@
 (ns dev.codecarver.domain.interactors.implementations.like-interactor
   (:require [dev.codecarver.domain.interactors.like-interactor :refer [LikeInteractor]])
   (:require [dev.codecarver.domain.repository.like :as repo])
-  (:require [dev.codecarver.domain.interactors.article_interactor :refer [exist?]])
+  (:require [dev.codecarver.domain.interactors.article-interactor :refer [exist?]])
   (:require [taoensso.timbre :refer [error]])
   (:require [clojure.core.strint :refer [<<]])
   (:require [dev.codecarver.domain.util.util :as util]))

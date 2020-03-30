@@ -1,4 +1,4 @@
-(ns dev.codecarver.domain.interactors.article_interactor)
+(ns dev.codecarver.domain.interactors.article-interactor)
 
 (defprotocol ArticleInteractor
   "Use cases around Articles that the system accomplish"
