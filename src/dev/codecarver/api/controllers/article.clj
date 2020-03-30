@@ -11,7 +11,7 @@
 (defn create-article [request]
   (try
     (let [article (create! (articleInteractor) (:body request )) response (json-response)]
-      (if (contains? article :validation_error)
+      (if (contains? article :validation-error)
         (assoc response :status 400 :body article)
         (assoc response :body article)))
     (catch Exception e
@@ -35,7 +35,7 @@
 (defn update-article [request]
   (try
     (let [article (update! (articleInteractor) (get-article-for-update request)) response (json-response)]
-      (if (contains? article :validation_error)
+      (if (contains? article :validation-error)
         (assoc response :status 400 :body article)
         (assoc response :body article)))
     (catch Exception e

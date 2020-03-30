@@ -40,11 +40,11 @@
   (create!
     [_ article]
     (validate {:action      (save! repository article)
-               :to_validate article}))
+               :to-validate article}))
   (update!
     [_ article]
     (validate {:action      (update! repository article)
-               :to_validate article}))
+               :to-validate article}))
   (get
     [_ id]
     (find_ repository id))

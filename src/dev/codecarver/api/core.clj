@@ -6,12 +6,12 @@
   (:require [dev.codecarver.api.util :refer [wrap-response]])
   (:require [ring.middleware.json :refer [wrap-json-response]])
   (:require [ring.middleware.defaults :refer [wrap-defaults api-defaults]])
-  (:require [dev.codecarver.api.routes.article :refer [article_routes]])
+  (:require [dev.codecarver.api.routes.article :refer [article-routes]])
   (:require [dev.codecarver.util.env :refer [get-env]]))
 
 (def app
   (routes
-   (-> article_routes
+   (-> article-routes
        (wrap-defaults api-defaults)
        wrap-response
        wrap-json-response)

@@ -7,7 +7,7 @@
   (:require [dev.codecarver.api.controllers.article :refer [get-article
                                                             get-articles]]))
 
-(defroutes article_routes
+(defroutes article-routes
   (wrap-params
    (routes
     (GET "/article/:id" [] get-article)

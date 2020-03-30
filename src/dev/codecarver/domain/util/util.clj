@@ -3,14 +3,14 @@
 
 (defn validate
   [options]
-  (let [{:keys [validator to_validate action]} options
-        validated (validator to_validate)]
+  (let [{:keys [validator to-validate action]} options
+        validated (validator to-validate)]
     (if (valid? validated)
       (action)
-      {:validation_error validated})))
+      {:validation-error validated})))
 
 (defn validation-error [message]
-  {:validation_error message})
+  {:validation-error message})
 
 (defn model->dto [mapping-differences]
   (fn [model]
