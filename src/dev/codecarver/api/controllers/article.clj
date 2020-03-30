@@ -10,7 +10,7 @@
                                                                           get-published]]))
 (defn create-article [request]
   (try
-    (let [article (create! (articleInteractor) (:body request )) response (json-response)]
+    (let [article (create! (articleInteractor) (:body request)) response (json-response)]
       (if (contains? article :validation-error)
         (assoc response :status 400 :body article)
         (assoc response :body article)))

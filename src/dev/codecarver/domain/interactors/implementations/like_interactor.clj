@@ -33,8 +33,8 @@
 (deftype ^:private Interactor [repository articleRepo]
   LikeInteractor
   (like! [_ like] (let [article-id (get like :article-id)] (if (article-exist? articleRepo article-id)
-                    (save! repository like)
-                    (util/validation-error (<< "article id ~{article-id} doesn't exist")))))
+                                                             (save! repository like)
+                                                             (util/validation-error (<< "article id ~{article-id} doesn't exist")))))
   (unlike! [_ id] (delete! repository id))
   (get-by-article [_ article-id] (find-by-article-id repository article-id)))
 

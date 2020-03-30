@@ -16,13 +16,12 @@
   (save!
     [_ like]
     (dto->model (first (jdbc/insert!
-             db
-             :plus_one (model->dto like)))))
+                        db
+                        :plus_one (model->dto like)))))
   (delete! [_ id]
     (jdbc/delete! db :plus_one ["id = ?" id]))
   (find-by-article-id [_ article-id]
     (dto->model (first (jdbc/find-by-keys db :plus_one {:article_id article-id})))))
-
 
 (defn likeRepoPostgreSQL []
   (LikeRepo.))

@@ -19,8 +19,8 @@
   (save!
     [_ article]
     (dto->model (first (jdbc/insert!
-             db
-             :article (model->dto article)))))
+                        db
+                        :article (model->dto article)))))
   (update!
     [this article]
     (let [id (:id article)]
@@ -33,8 +33,8 @@
   (find
     [_ id]
     (dto->model (jdbc/get-by-id
-     db
-     :article id)))
+                 db
+                 :article id)))
   (find-all [_] (dtos->models (jdbc/query db ["SELECT * FROM article"] {:clojure.java.jdbc.spec/as-arrays? true}))))
 
 (defn articleRepoPostgreSQL []
