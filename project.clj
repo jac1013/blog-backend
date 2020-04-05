@@ -11,7 +11,7 @@
                  [ring/ring-defaults "0.3.2"]
                  [com.novemberain/validateur "2.6.0"]
                  [org.clojure/java.jdbc "0.7.11"]
-                 [org.postgresql/postgresql "42.2.11"]
+                 [org.postgresql/postgresql "42.2.12"]
                  [lynxeyes/dotenv "1.0.2"]
                  [org.clojure/data.generators "1.0.0"]
                  [com.taoensso/timbre "4.10.0"]
