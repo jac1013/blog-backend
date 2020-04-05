@@ -7,16 +7,22 @@
   (:require [ring.middleware.json :refer [wrap-json-response]])
   (:require [ring.middleware.defaults :refer [wrap-defaults api-defaults]])
   (:require [dev.codecarver.api.routes.article :refer [article-routes]])
+  (:require [dev.codecarver.api.routes.like :refer [like-routes]])
   (:require [dev.codecarver.util.env :refer [get-env]]))
 
 (def app
   (routes
    (-> article-routes
        (wrap-defaults api-defaults)
-       wrap-response
-       wrap-json-response)
+       (wrap-response)
+       (wrap-json-response))
+   (-> like-routes
+       (wrap-defaults api-defaults)
+       (wrap-response)
+       (wrap-json-response))
    (route/not-found "<h1>Page not found</h1>")))
 
 (defn -main [& args]
   "Main for running the Web server application"
   (run-jetty app {:port (Integer/parseInt (get-env :WEB_PORT 3000))}))
+
