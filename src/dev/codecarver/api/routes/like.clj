@@ -7,10 +7,9 @@
   (:require [dev.codecarver.api.util :refer [wrap-response]])
   (:require [dev.codecarver.api.controllers.like :refer [like unlike]]))
 
-
 (defroutes like-routes
-             (routes
-               (wrap-json-body
-                 (POST "/like" [] like) {:keywords? true})
-               (wrap-params
-                 (DELETE "/unlike/:id" [id :<< as-int] unlike))))
+  (routes
+   (wrap-json-body
+    (POST "/like" [] like) {:keywords? true})
+   (wrap-params
+    (DELETE "/unlike/:id" [id :<< as-int] unlike))))

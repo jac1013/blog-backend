@@ -14,8 +14,8 @@
     (try
       (let [response (handler request) body (get response :body)]
         (if (nil? response)
-                 nil
-                 (assoc response :body (augment-response body))))
+          nil
+          (assoc response :body (augment-response body))))
       (catch Exception e
         {:status 500 :body (augment-response-error)}))))
 

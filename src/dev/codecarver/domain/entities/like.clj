@@ -7,8 +7,8 @@
 (defrecord Like [id article-id ip-address])
 
 (def ^:private validator (validation-set
-                           (presence-of :article-id)
-                           (presence-of :ip-address)))
+                          (presence-of :article-id)
+                          (presence-of :ip-address)))
 
 (defn validate [options]
   (util/validate (merge options {:validator validator})))

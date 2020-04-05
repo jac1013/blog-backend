@@ -9,7 +9,7 @@
   {:article-id 1 :ip-address "192.168.1.100"})
 
 (defn- mock-invalid-like []
-  (dissoc (mock-like) :article-id ))
+  (dissoc (mock-like) :article-id))
 
 (defn- get-likes-for-article []
   (get-by-article (likeInteractor) 1))

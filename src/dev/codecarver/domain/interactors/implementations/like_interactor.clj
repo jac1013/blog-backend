@@ -15,7 +15,7 @@
     (repo/save! repository like)
     (catch Exception e
       (error (<< "There was a problem creating like \n ~{e}"))
-       (throw e))))
+      (throw e))))
 
 (defn- save-with-validation [like repo articleRepo]
   (fn []

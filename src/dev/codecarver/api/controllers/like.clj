@@ -9,7 +9,6 @@
                                            presence-of
                                            length-of]]))
 
-
 (defn- get-id-from-params [request]
   (Integer/parseInt (get-in request [:params :id])))
 
