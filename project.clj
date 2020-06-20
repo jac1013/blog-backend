@@ -16,7 +16,8 @@
                  [org.clojure/data.generators "1.0.0"]
                  [com.taoensso/timbre "4.10.0"]
                  [org.clojure/core.incubator "0.1.4"]
-                 [clj-time "0.15.2"]]
+                 [clj-time "0.15.2"]
+                 [ring-cors "0.1.13"]]
   :main dev.codecarver.api.core
   :aot [dev.codecarver.api.core]
   :target-path "target/%s"
