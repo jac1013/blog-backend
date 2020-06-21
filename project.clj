@@ -23,7 +23,6 @@
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all :main dev.codecarver.api.core}
              :api {:main dev.codecarver.api.core}
-             :core-test {:main dev.codecarver.core}
              :cloverage  {:plugins [[lein-cloverage "1.0.11-20180518.155437-26"]]
                           :cloverage {:test-ns-regex [#"^((?!integration).)*$"]}}}
   :aliases {"api" ["with-profile" "api" "run"]}

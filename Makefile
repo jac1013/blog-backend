@@ -8,9 +8,6 @@ deps:
 lint:
 		lein kibit
 
-test:
-		lein test
-
 .env:
 		cp .env-template .env && cp .env.test-template ./.env.test
 

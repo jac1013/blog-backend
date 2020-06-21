@@ -44,10 +44,6 @@ jobs:
           key: v1-dependencies-{{ checksum "project.clj" }}
 
       - run:
-          name: Unit Tests
-          command: make test
-
-      - run:
           name: Linter
           command: make lint
 
