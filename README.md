@@ -12,7 +12,12 @@ Backend for a personal blog
 * [Docker-compose](https://docs.docker.com/compose/)
     
 ## Install dependencies
-* `make`
+* `$make`
     
+## Run the project
+* Build docker images with `$make docker`
+* Run the database with `$make run-db`
+* Run the web API with `$make run`
+
 ## What you can do in this project
 * For a list of commands check [Makefile](./Makefile)

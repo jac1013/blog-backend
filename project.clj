@@ -26,8 +26,7 @@
              :core-test {:main dev.codecarver.core}
              :cloverage  {:plugins [[lein-cloverage "1.0.11-20180518.155437-26"]]
                           :cloverage {:test-ns-regex [#"^((?!integration).)*$"]}}}
-  :aliases {"api" ["with-profile" "api" "run"]
-            "core-test" ["with-profile" "core-test" "run"]}
+  :aliases {"api" ["with-profile" "api" "run"]}
   :plugins [[lein-kibit "0.1.8"]
             [lein-ancient "0.6.15"]
             [lein-cloverage "1.1.2"]

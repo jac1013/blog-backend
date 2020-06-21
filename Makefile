@@ -24,9 +24,6 @@ build:
 		make clean && lein uberjar
 
 run:
-		lein core-test
-
-api:
 		lein api
 
 check-dependencies:
