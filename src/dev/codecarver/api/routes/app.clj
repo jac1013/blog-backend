@@ -4,5 +4,5 @@
   (:require [dev.codecarver.api.routes.like :refer [like-routes]]))
 
 (defroutes app-routes
-           article-routes
-           like-routes)
+  article-routes
+  like-routes)
