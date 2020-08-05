@@ -7,7 +7,7 @@
                  [ring/ring-core "1.8.1"]
                  [ring/ring-jetty-adapter "1.8.1"]
                  [ring/ring-json "0.5.0"]
-                 [compojure "1.6.1"]
+                 [compojure "1.6.2"]
                  [ring/ring-defaults "0.3.2"]
                  [com.novemberain/validateur "2.6.0"]
                  [org.clojure/java.jdbc "0.7.11"]
