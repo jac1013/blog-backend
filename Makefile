@@ -5,6 +5,9 @@ all: deps lint test .env docker
 deps:
 		lein deps
 
+test:
+		lein test
+
 lint:
 		lein kibit
 

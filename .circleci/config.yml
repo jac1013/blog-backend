@@ -43,23 +43,23 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "project.clj" }}
 
-#      - run:
-#          name: Unit Tests
-#          command: make test
+      - run:
+          name: Unit Tests
+          command: make test
 
       - run:
           name: Linter
           command: make lint
 
-#      - run:
-#          name: Generate Test Coverage
-#          command: make coverage
-#
-#      - run:
-#          name: Move test coverate to artifacts
-#          command: |
-#              mkdir coverage
-#              mv ./target/coverage/lcov.info coverage/
+      - run:
+          name: Generate Test Coverage
+          command: make coverage
+
+      - run:
+          name: Move test coverate to artifacts
+          command: |
+              mkdir coverage
+              mv ./target/coverage/lcov.info coverage/
 
       - run:
           name: Check Dependencies
